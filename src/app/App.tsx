@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 
 import '../styles/App.css';
+import '../styles/App.scss';
 import Wrapper from './Wrapper';
+
 import { Button } from 'react-bootstrap';
 
 const App: React.FC = ()=> {
@@ -10,7 +12,7 @@ const App: React.FC = ()=> {
     <div className="App">
       <Wrapper>
         How long have you been smiling?
-        <Button> gaga </Button>
+        <Button variant="primary">Primary</Button>
       </Wrapper>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
