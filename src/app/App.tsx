@@ -1,10 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-import '../styles/App.css';
 
-function App() {
+import '../styles/App.css';
+import Wrapper from './Wrapper';
+
+const App: React.FC = ()=> {
   return (
     <div className="App">
+      <Wrapper>
+        How long have you been smiling?
+      </Wrapper>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -22,5 +27,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
