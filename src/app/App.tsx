@@ -3,12 +3,14 @@ import logo from './logo.svg';
 
 import '../styles/App.css';
 import Wrapper from './Wrapper';
+import { Button } from 'react-bootstrap';
 
 const App: React.FC = ()=> {
   return (
     <div className="App">
       <Wrapper>
         How long have you been smiling?
+        <Button> gaga </Button>
       </Wrapper>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
