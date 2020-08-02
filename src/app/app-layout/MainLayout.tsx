@@ -1,10 +1,13 @@
 import React from 'react';
+import {Container} from 'react-bootstrap';
 
 const MainLayout: React.FC = ()=>{
     return(
-        <h1>
-            MainLayout
-        </h1>
+        <Container>
+            <h1>
+                MainLayout
+            </h1>
+        </Container>
     );
 };
 
