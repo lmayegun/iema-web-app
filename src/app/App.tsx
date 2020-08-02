@@ -12,7 +12,7 @@ import {ReactRouterConfig} from './route-systems';
 
 const App: React.FC = ()=> {
   return (
-    <AppContextProvider value={{name:'hill', author:'87', routes}}>
+    <AppContextProvider value={{routes}}>
       <Router history={history}>
         <ReactRouterConfig />
       </Router>

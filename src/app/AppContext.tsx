@@ -2,8 +2,6 @@ import * as React from 'react';
 import {RouteConfig} from 'react-router-config';
 
 export interface AppContextInterface {
-    name: string,
-    author: string,
     routes: RouteConfig[]
   }
 
