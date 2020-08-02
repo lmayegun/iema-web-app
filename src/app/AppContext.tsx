@@ -1,5 +1,14 @@
-import React from 'react';
+import * as React from 'react';
+import {RouteConfig} from 'react-router-config';
 
-const AppContext = React.createContext({});
+export interface AppContextInterface {
+    name: string,
+    author: string,
+    routes: RouteConfig[]
+  }
 
-export default AppContext;
+const AppContext = React.createContext<AppContextInterface | null>(null);
+
+export const AppContextProvider = AppContext.Provider;
+  
+export const AppContextConsumer = AppContext.Consumer;

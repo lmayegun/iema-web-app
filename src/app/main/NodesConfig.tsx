@@ -1,7 +1,25 @@
 import React from 'react';
+import {RouteConfig} from 'react-router-config';
 // import {authRoles} from 'app/auth'
 
-export const NodesConfig = {
+type NodeConfigType = {
+    settings: any,
+    routes: RouteConfig[]
+}
+
+const GrandChild = () => (
+    <div>
+        <h3>Grand Child</h3>
+    </div>
+);
+
+const GrandChild2 = () => (
+    <div>
+        <h3>Grand Child Trigger</h3>
+    </div>
+);
+
+export const NodesConfig: NodeConfigType = {
     settings: {
         layout: {
             config: {}
@@ -11,7 +29,12 @@ export const NodesConfig = {
         {
             exact    : true,
             path     : '/',
-            component: <h1>hd hs </h1>
+            component: GrandChild
+        },
+        {
+            exact    : true,
+            path     : '/a',
+            component: GrandChild2
         }
     ]
 };

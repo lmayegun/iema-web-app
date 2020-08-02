@@ -1,7 +1,9 @@
 import React from 'react';
+import {Router} from 'react-router';
 
 import routes from './configs/routesConfig';
-import AppContext from './AppContext';
+import {AppContextProvider} from './AppContext';
+import history from '../@history';
 
 import '../styles/App.css';
 import '../styles/App.scss';
@@ -10,9 +12,11 @@ import {ReactRouterConfig} from './route-systems';
 
 const App: React.FC = ()=> {
   return (
-    <AppContext.Provider value={{routes}}>
-      <ReactRouterConfig />
-    </AppContext.Provider>
+    <AppContextProvider value={{name:'hill', author:'87', routes}}>
+      <Router history={history}>
+        <ReactRouterConfig />
+      </Router>
+    </AppContextProvider>
   );
 };
 
