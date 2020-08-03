@@ -16,7 +16,7 @@ const MainLayout: React.FC = ()=>{
            (routes) => {
                return(
                     <ThemeProvider theme={appTheme}>
-                        <Container style={{background:'white'}}>
+                        <Container bsPrefix={`container page-wrapper`}>
                             <Page>
                                 <HeaderWrapper />
                                 <Suspense fallback={<h1>Loading profile...</h1>}>

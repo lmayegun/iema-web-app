@@ -5,3 +5,16 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+
+.page-wrapper{
+    background: white;
+}
+
+.jumbotron{
+    padding: 0px;
+}
+
+// helpers
+.img-responsive{
+    max-width: 100%;
+}

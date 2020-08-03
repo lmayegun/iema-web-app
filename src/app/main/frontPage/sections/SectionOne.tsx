@@ -1,10 +1,10 @@
 import React from 'react'; 
 
+import {JumbotronTeaser} from '../../../../@localpkg';
+
 const SectionOne: React.FC = ()=>{
     return(
-        <h2> 
-            Section One
-        </h2>
+        <JumbotronTeaser />
     );
 };
 

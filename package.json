@@ -48,7 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.2",
-    "@types/react-bootstrap": "^1.0.1"
+    "@types/react-bootstrap": "^1.0.1",
+    "@types/styled-components": "^5.1.2"
   }
 }
