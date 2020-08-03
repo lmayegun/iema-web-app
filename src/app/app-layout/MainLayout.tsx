@@ -5,7 +5,7 @@ import {renderRoutes} from 'react-router-config';
 import {ThemeProvider} from 'styled-components';
 import {appTheme} from '../configs/appTheme';
 import Page from './Page'
-import StyledHeaderWrapper from './HeaderWrapper'
+import { HeaderWrapper } from './Header'
 
 
 const MainLayout: React.FC = ()=>{
@@ -15,9 +15,9 @@ const MainLayout: React.FC = ()=>{
            (routes) => {
                return(
                     <ThemeProvider theme={appTheme}>
-                        <Container>
+                        <Container style={{background:'white'}}>
                             <Page>
-                                <StyledHeaderWrapper />
+                                <HeaderWrapper />
                                 {renderRoutes(routes!.routes)}
                             </Page>
                         </Container>
