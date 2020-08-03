@@ -22,7 +22,7 @@ const StyledHeaderWrapper = styled(HeaderWrapper)<HeaderWrapperProps>`
     }
 
     @media only screen and (max-width: 900px) {
-        .notlost{
+        .md-down-hide{
             background: blue;
             display: none;
         }
