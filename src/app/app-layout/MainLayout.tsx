@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {Container} from 'react-bootstrap';
 import {AppContextConsumer} from '../AppContext';
 import {renderRoutes} from 'react-router-config';
@@ -18,7 +18,9 @@ const MainLayout: React.FC = ()=>{
                         <Container style={{background:'white'}}>
                             <Page>
                                 <HeaderWrapper />
-                                {renderRoutes(routes!.routes)}
+                                <Suspense fallback={<h1>Loading profile...</h1>}>
+                                    {renderRoutes(routes!.routes)}
+                                </Suspense>   
                             </Page>
                         </Container>
                     </ThemeProvider>
