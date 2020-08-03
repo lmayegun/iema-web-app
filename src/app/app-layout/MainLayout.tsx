@@ -1,8 +1,9 @@
 import React, {Suspense} from 'react';
 import {Container} from 'react-bootstrap';
-import {AppContextConsumer} from '../AppContext';
 import {renderRoutes} from 'react-router-config';
 import {ThemeProvider} from 'styled-components';
+
+import {AppContextConsumer} from '../AppContext';
 import {appTheme} from '../configs/appTheme';
 import Page from './Page'
 import { HeaderWrapper } from './Header'
