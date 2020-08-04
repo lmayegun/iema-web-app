@@ -14,7 +14,7 @@ const SectionTwo: React.FC = ()=>{
                     <SideThumbTeaser />
                 </Col>
                 <Col sm={6} className={'padding-0 text-center'}>
-                    <CenterThumbTeaser />
+                    <CenterThumbTeaser overlapContent={true}/>
                 </Col>
             </Row>
         </div>
