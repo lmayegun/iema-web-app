@@ -1,7 +1,8 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import {Col, Row, Jumbotron} from 'react-bootstrap';
 
-import { CenterThumbTeaser, PaneTitle} from '../../../../@localpkg';
+import { CenterThumbTeaser, PaneTitle, TwitterTimeline} from '../../../../@localpkg';
+// import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const SectionThree: React.FC = ()=>{
     return(
@@ -22,7 +23,21 @@ const SectionThree: React.FC = ()=>{
             </div>
 
             <Row>
-                Magic Stick 
+                <Col sm={12}>
+                    <Jumbotron style={{padding:'20px'}}>
+                        <Row>
+                            <Col sm={4}>
+                                Magic Stick 
+                            </Col>
+                            <Col sm={4}>
+                                <TwitterTimeline />
+                            </Col>
+                            <Col sm={4}>
+                                Magic Stick 
+                            </Col>
+                        </Row>
+                    </Jumbotron>
+                </Col>
             </Row>
         </div>
     );
