@@ -3,6 +3,7 @@ import {Jumbotron, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
 import BoxTitleSummary from './BoxTitleSummary';
+import Tags from './Tags';
 
 interface JumbotronTeaserProps {
     className?: string;
@@ -25,6 +26,7 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = (props)=>{
                             <BoxTitleSummary>
                                 <h3> Quarter of UK's native mammals now at risk of extinction </h3>
                                 <p> Almost a quarter of Britain's native mammals are now at “imminent risk” of extinction, according to the Mammal Society's first official endangered list. </p>
+                                <Tags />
                             </BoxTitleSummary>
                         </div>
                     </Col>
