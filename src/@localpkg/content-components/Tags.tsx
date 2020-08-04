@@ -4,17 +4,18 @@ import styled from 'styled-components';
 interface TagsProps {
     className?: string;
 }
+
 const Tags: React.FC<TagsProps> = (props)=>{
     return(
         <span className={`${props.className} type-text`}>
             <a href="/">
-                Biodiversity
+                Biodiversity 
             </a>|
             <a href="/">
-                Biodiversity
+                Biodiversity 
             </a>|
             <a href="/">
-                Wildlife & Habitats
+                Wildlife & Habitats 
             </a>|
         </span>
     );
