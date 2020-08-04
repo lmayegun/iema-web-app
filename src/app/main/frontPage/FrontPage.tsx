@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {SectionOne} from './sections';
+import {SectionOne, SectionTwo} from './sections';
 
 const FrontPage: React.FC = ()=>{
     return(
-        <h1> 
+        <div>
             <SectionOne />
-        </h1>
+            <SectionTwo />
+        </div> 
     );
 };
 
