@@ -11,7 +11,7 @@ const TwitterTimeline: React.FC<TwitterTimelineProps> = ({className})=>{
     return(
         <div>
             <PaneTitle title={"Twitter"} />
-            <div className={className} style={{height:'500px', overflow:'auto'}}> 
+            <div className={className}> 
                 <a className={"twitter-timeline"} 
                 href="https://twitter.com/IEMA_Transform?ref_src=twsrc%5Etfw"> </a> 
             </div>
@@ -20,7 +20,7 @@ const TwitterTimeline: React.FC<TwitterTimelineProps> = ({className})=>{
 };
 
 const TwitterTimelineStyled = styled(TwitterTimeline)`
-    height:400px;
+    height:350px;
     overflow:auto;
 `;
 

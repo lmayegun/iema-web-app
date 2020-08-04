@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {SectionOne, SectionTwo, SectionThree} from './sections';
+import {SectionOne, SectionTwo, SectionThree, SectionFour} from './sections';
 
 const FrontPage: React.FC = ()=>{
     return(
@@ -8,6 +8,7 @@ const FrontPage: React.FC = ()=>{
             <SectionOne />
             <SectionTwo />
             <SectionThree />
+            <SectionFour />
         </div> 
     );
 };
