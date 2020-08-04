@@ -41,6 +41,7 @@ const JumbotronTeaserStyled = styled(JumbotronTeaser)`
     .jumbotron-content{
         margin-top: 120px;
         margin-left: -120px;
+        margin-bottom: 20px;
         max-width: 100%;
         min-height: 220px;
         background: white;
