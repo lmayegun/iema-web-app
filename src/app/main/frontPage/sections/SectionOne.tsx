@@ -9,10 +9,15 @@ const SectionOne: React.FC = ()=>{
             <Col sm={12} className={'padding-0'}>
                 <JumbotronTeaser />
             </Col>
-            <Col sm={6} className={'padding-0'}>
-                <SideThumbTeaser />
-                <SideThumbTeaser />
-            </Col>
+            <Row>
+                <Col sm={6}>
+                    <SideThumbTeaser />
+                    <SideThumbTeaser />
+                </Col>
+                <Col sm={6} className={'padding-0 text-center'}>
+                    Ad Board 
+                </Col>
+            </Row>
         </div>
     );
 };
