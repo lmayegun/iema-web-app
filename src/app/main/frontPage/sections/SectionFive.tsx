@@ -1,11 +1,20 @@
 import React from 'react'; 
+import {Col, Row} from 'react-bootstrap';
 
-import {PaneTitle} from '../../../../@localpkg';
+import {PaneTitle, TitleList} from '../../../../@localpkg';
 
 const SectionFive: React.FC = ()=>{
     return(
         <div>
-            <PaneTitle title={'Most Popular'}/>         
+            <PaneTitle title={'Most Popular'}/>
+            <Row>
+                <Col sm={9}>
+                    <TitleList width={40}/> 
+                </Col>
+                <Col sm={3}>
+ 
+                </Col>
+            </Row>        
         </div>
     );
 };
