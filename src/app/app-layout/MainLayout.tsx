@@ -2,6 +2,7 @@ import React, {Suspense} from 'react';
 import {Container} from 'react-bootstrap';
 import {renderRoutes} from 'react-router-config';
 import {ThemeProvider} from 'styled-components';
+import styled from 'styled-components';
 
 import {AppContextConsumer} from '../AppContext';
 import {appTheme} from '../configs/appTheme';
@@ -20,7 +21,9 @@ const MainLayout: React.FC = ()=>{
                             <Page>
                                 <HeaderWrapper />
                                 <Suspense fallback={<h1>Loading profile...</h1>}>
-                                    {renderRoutes(routes!.routes)}
+                                    <MainContainer>
+                                        {renderRoutes(routes!.routes)}
+                                    </MainContainer>
                                 </Suspense>   
                             </Page>
                         </Container>
@@ -31,5 +34,9 @@ const MainLayout: React.FC = ()=>{
         </AppContextConsumer>
     )
 };
+
+const MainContainer = styled.div`
+    padding-top: 235px;
+`;
 
 export default MainLayout;

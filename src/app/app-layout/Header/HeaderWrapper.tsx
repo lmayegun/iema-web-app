@@ -8,7 +8,7 @@ interface HeaderWrapperProps {
 
 const HeaderWrapper: React.FC<HeaderWrapperProps> = props => {
     return(
-        <div className={`navbar-wrapper navbar-fixed-top ${props.className}`}> 
+        <div className={`navbar-wrapper navbar-fixed-top pl-0 pr-0 container ${props.className}`}>
             <HeaderBrands />
             <HeaderNavigation />
         </div>
@@ -17,6 +17,9 @@ const HeaderWrapper: React.FC<HeaderWrapperProps> = props => {
 
 const StyledHeaderWrapper = styled(HeaderWrapper)<HeaderWrapperProps>`
     padding-top:20px;
+    position: fixed;
+    background: white;
+    z-index: 999;
 
     #logobar{
         border-bottom: 1px solid #8a8a8a;

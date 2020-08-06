@@ -2,7 +2,6 @@ import React from 'react';
 import {Col, Row, Jumbotron} from 'react-bootstrap';
 
 import { CenterThumbTeaser, PaneTitle, TwitterTimeline} from '../../../../@localpkg';
-// import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const SectionThree: React.FC = ()=>{
     return(
