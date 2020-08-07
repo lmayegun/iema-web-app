@@ -5,7 +5,6 @@ const withReducer = (key: any , reducer: any) => ( WrappedComponent: React.Compo
     class extends React.PureComponent {
         constructor(props: any)
         {
-            alert(reducer);
             super(props);
             injectReducer(key, reducer);
         };

@@ -1,21 +1,30 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import rootReducer from './chat';
+import rootReducer, {rootReducerAsync} from './chat';
 
 const sagaMiddeleware = createSagaMiddleware();
 
-const composeEnhancers = compose;
-
-const enhancer = composeEnhancers(
-  applyMiddleware(sagaMiddeleware)
-);
-
-const store = createStore(rootReducer, enhancer);
+const store = createStore(
+                rootReducer, 
+                compose(applyMiddleware(sagaMiddeleware))
+            );
 
 store.subscribe(()=>{
     console.log('my store', store.getState()); 
   });
+
+const asyncReducers: any = {};
+
+export const injectReducer = (key: any, reducer: any) => {
+    if ( asyncReducers[key] )
+    {
+        return;
+    }
+    asyncReducers[key] = reducer;
+    store.replaceReducer(rootReducerAsync(asyncReducers));
+    return store;
+};
 
 export type RootState = ReturnType<typeof rootReducer>
 
