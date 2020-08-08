@@ -8,26 +8,18 @@ import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
 import withReducer from 'src/app/store/withReducer';
 
-import {sendMessage} from 'src/app/store/chat/actions';
-import { ChatState } from 'src/app/store/chat/types';
-
-interface RootState {
-    chat: ChatState
-}
-
-  const selectChat = (state: RootState) => state.chat;
+const selectArticles = ( state: any ) => state.homepage.articles;
 
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        // dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_JUMBOTRON}));
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_TEASER}));
     },[dispatch])
 
-    const chat = useSelector(selectChat);
-    console.log('ho my', chat);
+    const articles = useSelector(selectArticles);
+    console.log('moi', articles);
 
     return(
         <div>
