@@ -19,10 +19,12 @@ export interface ArticleFilter{
     reducer: string; 
 }
 
-export const GET_ARTICLES = '[ARTICLES] GET_ARTICLES';
+export const articleActionsId = {
+    GET_ARTICLES : '[ARTICLES] GET_ARTICLES'
+}
 
 interface GetArticles {
-    type: typeof GET_ARTICLES;
+    type: typeof articleActionsId.GET_ARTICLES;
     payload: ArticleFilter
 }
 

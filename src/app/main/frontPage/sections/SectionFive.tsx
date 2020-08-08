@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {Col, Row} from 'react-bootstrap';
 
-import {PaneTitle, TitleList} from '../../../../@localpkg';
+import {PaneTitle, TitleList} from 'src/@localpkg';
 
 const SectionFive: React.FC = ()=>{
     return(

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, Row, Jumbotron} from 'react-bootstrap';
 
-import { CenterThumbTeaser, PaneTitle, TwitterTimeline} from '../../../../@localpkg';
+import { CenterThumbTeaser, PaneTitle, TwitterTimeline} from 'src/@localpkg';
 
 const SectionThree: React.FC = ()=>{
     return(

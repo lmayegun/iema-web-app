@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from '../../../../@localpkg';
+import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from 'src/@localpkg';
 
-import { Topic } from '../../types';
-import { getArticles } from '../../store/actions/article.actions';
-import {sendMessage} from '../../../store/chat/actions';
-import { ChatState } from '../../../store/chat/types';
+import { Topic } from 'src/app/main/types';
+import { getArticles } from 'src/app/main/store/actions/article.actions';
+import {sendMessage} from 'src/app/store/chat/actions';
+import { ChatState } from 'src/app/store/chat/types';
 
 interface RootState {
     chat: ChatState
@@ -17,8 +17,11 @@ interface RootState {
 
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
-    dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
-    dispatch(getArticles({topic:Topic.News, reducer:'[JUMBOTRON HOMEPAGE NEWS]'}));
+
+    useEffect(()=>{
+        dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
+        dispatch(getArticles({topic:Topic.News, reducer:'[JUMBOTRON HOMEPAGE NEWS]'}));
+    },[dispatch])
 
     const chat = useSelector(selectChat);
     console.log('ho my', chat);

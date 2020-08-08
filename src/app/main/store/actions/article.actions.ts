@@ -1,4 +1,4 @@
-import { ArticleFilter, ArticleActionTypes, GET_ARTICLES } from '../../types';
+import { ArticleFilter, ArticleActionTypes, articleActionsId } from 'src/app/main/types';
 
 export function getArticles(payload: ArticleFilter) : ArticleActionTypes {
     
@@ -6,7 +6,7 @@ export function getArticles(payload: ArticleFilter) : ArticleActionTypes {
     console.log('reducer', payload.reducer)
 
     return{
-        type: GET_ARTICLES,
+        type: articleActionsId.GET_ARTICLES,
         payload
     };
 };
