@@ -23,6 +23,7 @@ const SectionOne: React.FC = ()=>{
     useEffect(()=>{
         // dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_JUMBOTRON}));
+        dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_TEASER}));
     },[dispatch])
 
     const chat = useSelector(selectChat);

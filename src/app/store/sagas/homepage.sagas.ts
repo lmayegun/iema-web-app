@@ -9,6 +9,14 @@ function* getHomepageArticlesWorker(payload : any) {
               type:homepageReducersId.NEWS_JUMBOTRON_SUCCESS, 
               payload: 'a news for jumbotron'
             });
+      break;
+    }
+    case homepageReducersId.NEWS_TEASER: {
+      yield put({
+        type: homepageReducersId.NEWS_TEASER_SUCCESS,
+        payload: 'latest two news'
+      })
+      break;
     }
   }
 }
