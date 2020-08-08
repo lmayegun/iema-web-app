@@ -3,9 +3,11 @@ import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from 'src/@localpkg';
+import { Topic, homepageReducersId } from 'src/app/main/types';
+import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
+import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
+import withReducer from 'src/app/store/withReducer';
 
-import { Topic } from 'src/app/main/types';
-import { getArticles } from 'src/app/main/store/actions/article.actions';
 import {sendMessage} from 'src/app/store/chat/actions';
 import { ChatState } from 'src/app/store/chat/types';
 
@@ -19,8 +21,8 @@ const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
-        dispatch(getArticles({topic:Topic.News, reducer:'[JUMBOTRON HOMEPAGE NEWS]'}));
+        // dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
+        dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_JUMBOTRON}));
     },[dispatch])
 
     const chat = useSelector(selectChat);
@@ -45,4 +47,4 @@ const SectionOne: React.FC = ()=>{
     );
 };
 
-export default SectionOne;
+export default withReducer('homepage', homepageReducer)(SectionOne);

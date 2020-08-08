@@ -13,14 +13,29 @@ export enum Topic {
     ArticleType = 'article-type'
 }
 
+export interface Article{
+    id: number;
+    title: string;
+}
+
+export interface HomepageState {
+    articles: Article[]
+}
+
 export interface ArticleFilter{
     topic: Topic;
-    tag?: string;
-    reducer: string; 
+    reducer: string;
+    tag?: string; 
 }
 
 export const articleActionsId = {
-    GET_ARTICLES : '[ARTICLES] GET_ARTICLES'
+    GET_ARTICLES : '[ARTICLES] GET_ARTICLES',
+    GET_HOMEPAGE_ARTICLES : '[HOMEPAGE] GET_ARTICLES'
+}
+
+export const homepageReducersId = {
+    NEWS_JUMBOTRON : '[JUMBOTRON HOMEPAGE NEWS]',
+    NEWS_JUMBOTRON_SUCCESS : '[HOMEPAGE] JUMBOTRON_NEWS_SUCCESS',
 }
 
 interface GetArticles {
@@ -28,4 +43,10 @@ interface GetArticles {
     payload: ArticleFilter
 }
 
-export type ArticleActionTypes = GetArticles;
+interface GetHomepageArticles {
+    type: typeof articleActionsId.GET_HOMEPAGE_ARTICLES;
+    payload: ArticleFilter
+}
+
+
+export type ArticleActionTypes = GetArticles | GetHomepageArticles ;

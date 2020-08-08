@@ -1,15 +1,21 @@
 import { put, takeLatest } from 'redux-saga/effects';
 
-import {articleActionsId} from 'src/app/main/types';
+import {articleActionsId, homepageReducersId} from 'src/app/main/types';
 
-function* getArticlesWorker(payload : any) {
-  console.log('twicer',payload)
-  yield put({type:'[ARTICLES] GET_ARTICLES_SUCCESS'});
+function* getHomepageArticlesWorker(payload : any) {
+  switch (payload.payload.reducer){
+    case homepageReducersId.NEWS_JUMBOTRON:{
+      yield put({
+              type:homepageReducersId.NEWS_JUMBOTRON_SUCCESS, 
+              payload: 'a news for jumbotron'
+            });
+    }
+  }
 }
 
-export function* watchGetArticles() {
+export function* watchGetHomepageArticles() {
   yield takeLatest(
-    articleActionsId.GET_ARTICLES,
-    getArticlesWorker
+    articleActionsId.GET_HOMEPAGE_ARTICLES,
+    getHomepageArticlesWorker
   );
 }

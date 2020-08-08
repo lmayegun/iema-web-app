@@ -1,6 +1,6 @@
 import { all, fork} from 'redux-saga/effects';
-import {watchGetArticles} from './homepage.sagas';
+import {watchGetHomepageArticles} from './homepage.sagas';
 
 export const rootSaga = function* root() {
-    yield all([fork(watchGetArticles)]);
+    yield all([fork(watchGetHomepageArticles)]);
   };
