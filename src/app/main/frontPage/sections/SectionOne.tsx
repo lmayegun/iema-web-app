@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from '../../../../@localpkg';
 
+import { Topic } from '../../types';
+import { getArticles } from '../../store/actions/article.actions';
 import {sendMessage} from '../../../store/chat/actions';
 import { ChatState } from '../../../store/chat/types';
 
@@ -16,6 +18,7 @@ interface RootState {
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
     dispatch(sendMessage({user:'shhs', message:'shhshs', timestamp:89}));
+    dispatch(getArticles({topic:Topic.News, reducer:'[JUMBOTRON HOMEPAGE NEWS]'}));
 
     const chat = useSelector(selectChat);
     console.log('ho my', chat);
