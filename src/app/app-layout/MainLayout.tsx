@@ -36,7 +36,7 @@ const MainLayout: React.FC = ()=>{
 };
 
 const MainContainer = styled.div`
-    padding-top: 140px;
+    padding-top: 180px;
 `;
 
 export default MainLayout;
