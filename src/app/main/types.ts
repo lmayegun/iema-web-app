@@ -14,8 +14,9 @@ export enum Topic {
 }
 
 export interface Article{
-    id: number;
+    id: string;
     title: string;
+    urlToImage: string;
 }
 
 export interface HomepageState {
