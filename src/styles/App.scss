@@ -6,6 +6,12 @@ $theme-colors: (
 
 @import "~bootstrap/scss/bootstrap";
 
+.orange{ color: orange;}
+.sea-blue{ color: #407ec9;}
+.khaki{ color: #8c9547;}
+.purple{ color: #68478d;}
+.blueish-green{ color: #007a93;}
+
 .page-wrapper{
     background: white;
     max-width: 1260px;
@@ -15,6 +21,13 @@ $theme-colors: (
     padding: 0px;
 }
 
+.modal.show{
+    padding: 0px;
+}
+
+.modal-dialog.modal-100w{max-width: 100%;}
+.modal-dialog.mt-0{ padding-top: 0px;}
+
 // helpers
 .img-responsive{
     max-width: 100%;
@@ -23,9 +36,3 @@ $theme-colors: (
 .padding-0{
     padding: 0px;
 }
-
-.orange{ color: orange;}
-.sea-blue{ color: #407ec9;}
-.khaki{ color: #8c9547;}
-.purple{ color: #68478d;}
-.blueish-green{ color: #007a93;}

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'; 
 
+import {ModalComponent} from 'src/@localpkg'
+
 const HeaderNavigation: React.FC = ()=>{
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return(
+        <>
         <HeaderNavigationStyled>
             <header id="navbar" className={'hidden-xs hidden-sm hidden-md navbar container navbar-default'}>
                 <div className={'container main'}>
@@ -14,14 +22,24 @@ const HeaderNavigation: React.FC = ()=>{
                         <li className={''}><Link to={'/'} className={''}>Sustainability</Link></li>
                         <li className={''}><Link to={'/'} className={'purple'}>Knowledge Centre</Link></li>
                         <li className={''}><Link to={'/'} className={'blueish-green'}>Jobs</Link></li>
-                        <li className={'last'}><Link to={'/'} className={''}>Topic</Link></li>
+                        <li className={'last'} onClick={handleShow}>Topic</li>
                     </ul>
                 </div>
                 <div className={'grey-bg row'}>
-                    
+
                 </div>
             </header>
         </HeaderNavigationStyled>
+        <ModalComponent 
+            show={show} 
+            handleClose={handleClose} 
+            dialogClass={'modal-100w mt-0'}
+            header={<h2 className="modal-title text-center">Topic</h2>}
+            footer={<h2> woo2 </h2>}
+        >
+            asas
+        </ModalComponent>
+        </>
     );
 };
 

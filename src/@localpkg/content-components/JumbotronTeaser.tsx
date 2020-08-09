@@ -45,7 +45,7 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
 
 const JumbotronTeaserStyled = styled.div`
     .jumbotron-img{
-        max-width: 120%;
+        max-width: 100%;
     }
     .jumbotron-content{
         margin-top: 120px;
