@@ -2,30 +2,36 @@ import React from 'react';
 import {Jumbotron, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
+import {Article} from 'src/app/main/types';
 import BoxTitleSummary from './BoxTitleSummary';
 import Tags from './Tags';
 import Date from './Date';
 
-interface JumbotronTeaserProps {
-    className?: string;
+type JumbotronTeaserProps = {
+    article: Article[];
 }
 
-const JumbotronTeaser: React.FC<JumbotronTeaserProps> = (props)=>{
+const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
+    if(!article){
+        return <h5> not showing</h5>
+    }
+    const { title, urlToImage} = article[0];
+    console.log(title, 'nuisance')
     return(
-        <div className={props.className}>
+        <JumbotronTeaserStyled>
             <Jumbotron>
                 <Row>
                     <Col md={7}>
                         <img 
-                            src={`https://transform.iema.net/sites/default/files/styles/new_hero_image_720_x_460/public/s3/hero/water-vole-by-philip-braude.jpg?itok=ADwDejDH`} 
+                            src={`${urlToImage}`} 
                             alt={``}
-                            className={`img-responsive`}
+                            className={`img-responsive jumbotron-img`}
                         />
                     </Col>
                     <Col md={5}>
                         <div className={`jumbotron-content text-center`}>
                             <BoxTitleSummary>
-                                <h3> Quarter of UK's native mammals now at risk of extinction </h3>
+                                <h3> {title} </h3>
                                 <p> Almost a quarter of Britain's native mammals are now at “imminent risk” of extinction, according to the Mammal Society's first official endangered list. </p>
                                 <Tags /> <Date />
                             </BoxTitleSummary>
@@ -33,11 +39,14 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = (props)=>{
                     </Col>
                 </Row>
             </Jumbotron>
-        </div>
+        </JumbotronTeaserStyled>
     );
 };
 
-const JumbotronTeaserStyled = styled(JumbotronTeaser)`
+const JumbotronTeaserStyled = styled.div`
+    .jumbotron-img{
+        max-width: 120%;
+    }
     .jumbotron-content{
         margin-top: 120px;
         margin-left: -120px;
@@ -49,4 +58,4 @@ const JumbotronTeaserStyled = styled(JumbotronTeaser)`
     }
 `;
 
-export default React.memo(JumbotronTeaserStyled); 
+export default React.memo(JumbotronTeaser); 

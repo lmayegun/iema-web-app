@@ -8,7 +8,7 @@ const SectionOne: React.FC = ()=>{
         <div>
             <PaneTitle title="Knowledge" />
             <Col sm={12} className={'padding-0'}>
-                <JumbotronTeaser />
+      
             </Col>
             <Row>
                 <Col sm={6}>

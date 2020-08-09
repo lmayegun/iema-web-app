@@ -20,6 +20,7 @@ const StyledHeaderWrapper = styled(HeaderWrapper)<HeaderWrapperProps>`
     position: fixed;
     background: white;
     z-index: 999;
+    max-width: 1230px;
 
     #logobar{
         border-bottom: 1px solid #8a8a8a;

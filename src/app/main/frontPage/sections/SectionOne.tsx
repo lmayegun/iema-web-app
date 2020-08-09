@@ -19,7 +19,6 @@ const SectionOne: React.FC = ()=>{
     },[dispatch])
 
     const articles = useSelector(selectArticles);
-    console.log('moi', articles);
 
     if( !articles ){
         return <h1> nothing to see </h1>
