@@ -22,12 +22,6 @@ const StyledHeaderWrapper = styled(HeaderWrapper)<HeaderWrapperProps>`
     z-index: 999;
     max-width: 1230px;
 
-    #logobar{
-        border-bottom: 1px solid #8a8a8a;
-        padding-bottom: 4px;
-        margin-bottom: 14px;
-    }
-
     @media only screen and (max-width: 900px) {
         .md-down-hide{
             background: blue;
