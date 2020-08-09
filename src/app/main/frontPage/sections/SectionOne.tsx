@@ -8,7 +8,7 @@ import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
 import withReducer from 'src/app/store/withReducer';
 
-const selectArticles = ( state: any ) => state.homepage.articles;
+const selectArticles = ( state: any ) => state.homepage.articles.newsJumbotronState;
 
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
@@ -21,11 +21,15 @@ const SectionOne: React.FC = ()=>{
     const articles = useSelector(selectArticles);
     console.log('moi', articles);
 
+    if( !articles ){
+        return <h1> nothing to see </h1>
+    }
+
     return(
         <div>
             <PaneTitle title="News" />
             <Col sm={12} className={'padding-0'}>
-                <JumbotronTeaser />
+                <JumbotronTeaser article={articles} />
             </Col>
             <Row>
                 <Col sm={6}>
