@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -12,15 +12,20 @@ const selectArticles = ( state: any ) => state.homepage.articles.newsJumbotronSt
 
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
+    const jumbotronArticleState = useSelector(selectArticles);
+
+    const [jumbotronArticle, setJumbotronArticle] = useState(jumbotronArticleState)
 
     useEffect(()=>{
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_JUMBOTRON}));
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_TEASER}));
-    },[dispatch])
+    },[dispatch]);
 
-    const articles = useSelector(selectArticles);
+    useEffect(()=>{
+        setJumbotronArticle(jumbotronArticleState);
+    },[jumbotronArticleState, setJumbotronArticle])
 
-    if( !articles ){
+    if( !jumbotronArticle ){
         return <h1> nothing to see </h1>
     }
 
@@ -28,7 +33,7 @@ const SectionOne: React.FC = ()=>{
         <div>
             <PaneTitle title="News" />
             <Col sm={12} className={'padding-0'}>
-                <JumbotronTeaser article={articles} />
+                <JumbotronTeaser article={jumbotronArticle} />
             </Col>
             <Row>
                 <Col sm={6}>
