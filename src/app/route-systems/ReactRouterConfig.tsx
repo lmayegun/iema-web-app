@@ -1,10 +1,16 @@
 import React from 'react';
-import MainLayout from 'src/app/app-layout/MainLayout';
+import {withRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {renderRoutes} from 'react-router-config';
+
+import appsConfig from 'src/app/configs/appsConfig'
 
 const ReactRouterConfig: React.FC = ()=>{
     return(
-        <MainLayout />
+        <>
+            <BrowserRouter>{renderRoutes(appsConfig.iemaRoutesConfig)}</BrowserRouter>,
+        </>
     );
 };
 
-export default ReactRouterConfig;
+export default withRouter(ReactRouterConfig);

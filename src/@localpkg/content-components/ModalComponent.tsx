@@ -1,6 +1,5 @@
-import React, { JSXElementConstructor } from 'react';
-import {Modal, Button} from 'react-bootstrap'
-import styled from 'styled-components';  
+import React from 'react';
+import {Modal} from 'react-bootstrap' 
 
 interface ModalComponentProps{
   show: boolean;

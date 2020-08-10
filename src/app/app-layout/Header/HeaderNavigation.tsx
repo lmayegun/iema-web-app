@@ -16,9 +16,9 @@ const HeaderNavigation: React.FC = ()=>{
             <header id="navbar" className={'hidden-xs hidden-sm hidden-md navbar container navbar-default'}>
                 <div className={'container main'}>
                     <ul className={'links'}>
-                        <li className={'first'}><Link to={'/'} className={'orange'}>News</Link></li>
-                        <li className={''}><Link to={'/'} className={'sea-blue'}>Management</Link></li>
-                        <li className={''}><Link to={'/'} className={'khaki'}>Impact Assesment</Link></li>
+                        <li className={'first'}><Link to='/' className={'orange'}>News</Link></li>
+                        <li className={''}><Link to='/gin' className={'sea-blue'}>Management</Link></li>
+                        <li className={''}><Link to={'/s'} className={'khaki'}>Impact Assesment</Link></li>
                         <li className={''}><Link to={'/'} className={''}>Sustainability</Link></li>
                         <li className={''}><Link to={'/'} className={'purple'}>Knowledge Centre</Link></li>
                         <li className={''}><Link to={'/'} className={'blueish-green'}>Jobs</Link></li>

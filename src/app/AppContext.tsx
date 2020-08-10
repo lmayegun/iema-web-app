@@ -5,7 +5,7 @@ export interface AppContextInterface {
     routes: RouteConfig[]
   }
 
-const AppContext = React.createContext<AppContextInterface | null>(null);
+const AppContext = React.createContext<AppContextInterface | null >(null);
 
 export const AppContextProvider = AppContext.Provider;
   
