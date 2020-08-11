@@ -6,3 +6,6 @@ export {default as TitleList} from './content-components/TitleList';
 export {default as TwitterTimeline} from './content-components/TwitterTimeline';
 export {default as MagazineSlider} from './content-components/MagazineSlider';
 export {default as ModalComponent} from './content-components/ModalComponent';
+export {default as ArticleContent} from './content-components/ArticleContent';
+export {default as Tags} from './content-components/Tags';
+export {default as Date} from './content-components/Date';

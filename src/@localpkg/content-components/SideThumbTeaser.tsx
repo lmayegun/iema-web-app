@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 import Tags from './Tags';
 import Date from './Date';
@@ -22,7 +23,7 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = (props)=>{
                 </div>
                 <div className={'teaser-content'}>
                     <h3>
-                        <a href="/article/:id">Air pollution exposure linked to higher COVID-19 risk</a>
+                        <Link to={'/article/:id'}> Air pollution exposure linked to higher COVID-19 risk </Link>
                     </h3>
                     <p>
                         A recent study in the Netherlands has provided further evidence to suggest that exposure to higher levels of air pollution increases the risk of death from COVID-19.
