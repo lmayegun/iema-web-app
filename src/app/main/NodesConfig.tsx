@@ -7,13 +7,13 @@ export const NodesConfig: any = {
   },
   routes: [
       {
-          exact    : true,
-          path     : '/gin',
-          component: React.lazy(() => import('./frontPage/FrontPage2')),
-      },
+          exact     : true,
+          path      : '/',
+          component : React.lazy(() => import('./frontPage/FrontPage')),
+      }, 
       {
-          path     : '/',
-          component: React.lazy(() => import('./frontPage/FrontPage')),
+          path      : '/article/:id',
+          component : React.lazy(() => import('./Article')), 
       }
   ]
 };

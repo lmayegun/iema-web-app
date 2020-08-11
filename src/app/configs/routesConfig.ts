@@ -1,5 +1,5 @@
-import AppUtils from '../../@localpkg/AppUtils';
-import {NodesConfig} from '../main/NodesConfig';
+import AppUtils from 'src/@localpkg/AppUtils';
+import {NodesConfig} from 'src/app/main/NodesConfig';
 
 const routesComponentsConfig = [
   NodesConfig,
