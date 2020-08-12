@@ -8,11 +8,14 @@ import Date from './Date';
 
 interface SideThumbTeaserProps {
     className?: string;
+    showSummary?: boolean;
 }
 
-const SideThumbTeaser: React.FC<SideThumbTeaserProps> = (props)=>{
+const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary})=>{
     return(
-        <Col sm={12} className={`${props.className} padding-0`}>
+        <div className={`${className}`}>
+        <SideThumbTeaserStyled>
+        <Col sm={12} className={`padding-0`}>
             <div className={'teaser'}>
                 <div className={'teaser-img'}>
                     <img 
@@ -25,9 +28,11 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = (props)=>{
                     <h3>
                         <Link to={'/article/:id'}> Air pollution exposure linked to higher COVID-19 risk </Link>
                     </h3>
-                    <p>
-                        A recent study in the Netherlands has provided further evidence to suggest that exposure to higher levels of air pollution increases the risk of death from COVID-19.
-                    </p>
+                    {(showSummary) && (
+                        <p>
+                            A recent study in the Netherlands has provided further evidence to suggest that exposure to higher levels of air pollution increases the risk of death from COVID-19.
+                        </p>
+                    )}
 
                     <div className={'type-text-wrapper'}>
                         <Tags />
@@ -39,10 +44,12 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = (props)=>{
                 </div>
             </div>
         </Col>
+        </SideThumbTeaserStyled>
+        </div>
     );
 };
 
-const SideThumbTeaserStyled = styled(SideThumbTeaser)`
+const SideThumbTeaserStyled = styled.div`
     margin-bottom: 20px;
     .teaser {
         position: relative;
@@ -80,5 +87,5 @@ const SideThumbTeaserStyled = styled(SideThumbTeaser)`
     }
 `;
 
-export default SideThumbTeaserStyled;
+export default SideThumbTeaser;
 

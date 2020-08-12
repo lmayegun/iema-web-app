@@ -16,12 +16,12 @@ const HeaderNavigation: React.FC = ()=>{
             <header id="navbar" className={'hidden-xs hidden-sm hidden-md navbar container navbar-default'}>
                 <div className={'container main'}>
                     <ul className={'links'}>
-                        <li className={'first'}><Link to='/' className={'orange'}>News</Link></li>
-                        <li className={''}><Link to='/gin' className={'sea-blue'}>Management</Link></li>
-                        <li className={''}><Link to={'/s'} className={'khaki'}>Impact Assesment</Link></li>
-                        <li className={''}><Link to={'/'} className={''}>Sustainability</Link></li>
-                        <li className={''}><Link to={'/'} className={'purple'}>Knowledge Centre</Link></li>
-                        <li className={''}><Link to={'/'} className={'blueish-green'}>Jobs</Link></li>
+                        <li className={'first'}><Link to='/topic/news' className={'orange'}>News</Link></li>
+                        <li className={''}><Link to='/topic/management' className={'sea-blue'}>Management</Link></li>
+                        <li className={''}><Link to='/topic/impact-assesment' className={'khaki'}>Impact Assesment</Link></li>
+                        <li className={''}><Link to='/topic/sustainability' className={''}>Sustainability</Link></li>
+                        <li className={''}><Link to='/topic/knowledge-centre' className={'purple'}>Knowledge Centre</Link></li>
+                        <li className={''}><Link to='/topic/jobs' className={'blueish-green'}>Jobs</Link></li>
                         <li className={'last'} onClick={handleShow}>Topic</li>
                     </ul>
                 </div>
