@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import {Collapse} from 'react-bootstrap';
 
 const SearchInput: React.FC = ()=>{
+  const [open, setOpen] = useState(false);
+
   return(
     <SearchInputStyled>
-      <div className={'search'}></div>
+      <div onClick={() => setOpen(!open)} className={'search'}></div>
+      <Collapse in={open}>
+        <div className="collapse-text">
+        <input className="form-control form-text" type="text" id="edit-search-api-views-fulltext" name="search_api_views_fulltext" value="" style={{"display": "inline-block"}}/>
+        </div>
+      </Collapse>
     </SearchInputStyled>
   );
 };
@@ -20,6 +28,13 @@ const SearchInputStyled = styled.div`
     height: 30px;
     width: 30px;
     float: right;
+    cursor: pointer;
+  }
+  .collapse-text{
+    position: absolute;
+    top: 16px;
+    right: 0;
+    z-index: 1;
   }
 `;
 
