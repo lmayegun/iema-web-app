@@ -66,5 +66,5 @@ $theme-colors: (
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px){
-    
+    .hidden-xl{display: none;}
 }

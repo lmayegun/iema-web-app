@@ -3,6 +3,7 @@ import {Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 
 import {IemaLogo, TransformLogo, SearchInput} from '../shared-components';
+import {BurgerMenu} from './index';
 
 const HeaderBrands: React.FC = ()=>{
     return(
@@ -15,7 +16,10 @@ const HeaderBrands: React.FC = ()=>{
                         <IemaLogo />
                     </Col>
                     <Col md={12} lg={4}>
-                        <TransformLogo /><div style={{float:'right'}}> menu </div>
+                        <TransformLogo />
+                        <div className={'hidden-lg hidden-xl'}>
+                        <BurgerMenu />
+                        </div>
                     </Col>
                     <Col md={0} lg={4} className={'hidden-xs hidden-sm hidden-md'}>
                         <SearchInput />

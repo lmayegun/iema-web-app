@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'; 
-import {useAccordionToggle, Accordion, Card} from 'react-bootstrap';
 
 import {AppContextConsumer} from 'src/app/AppContext';
 import {ModalComponent} from 'src/@localpkg'
@@ -41,44 +40,11 @@ const HeaderNavigation: React.FC = ()=>{
                     >
                         <HeaderTopicLinks links={TopicLinks}/>
                     </ModalComponent>
-
-                    {/* <Example /> */}
                 </>
             );
         }}
     </AppContextConsumer>
 };
-
-function CustomToggle( props: any ) {
-    const decoratedOnClick = useAccordionToggle(props.eventKey, () =>
-        console.log('totally custom!'),
-    );
-
-    return (
-        <button
-        type="button"
-        style={{ backgroundColor: 'pink' }}
-        onClick={decoratedOnClick}
-        >
-        {props.children}
-        </button>
-    );
-}
-
-function Example() {
-    return (
-    <>
-      <Accordion defaultActiveKey="0">
-      <CustomToggle eventKey="1">Click me!</CustomToggle>
-        <Card>
-          <Accordion.Collapse eventKey="1">
-            <Card.Body>Hello! I'm another body</Card.Body>
-          </Accordion.Collapse>
-        </Card>
-      </Accordion>
-    </>
-    );
-  }
 
 const HeaderNavigationStyled = styled.div`
     .navbar {
