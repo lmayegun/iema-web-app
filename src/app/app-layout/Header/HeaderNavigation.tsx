@@ -1,48 +1,84 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'; 
+import {useAccordionToggle, Accordion, Card} from 'react-bootstrap';
 
+import {AppContextConsumer} from 'src/app/AppContext';
 import {ModalComponent} from 'src/@localpkg'
-import HeaderTopicLinks from 'src/app/app-layout/Header/HeaderTopicLinks';
+import {HeaderTopicLinks} from './index';
 import TopicLinks from './TopicModalLinks.json';
 
 const HeaderNavigation: React.FC = ()=>{
-    const [show, setShow] = useState(false);
+    return <AppContextConsumer>
+        {(context)=>{
+            console.log(context)
+            return(
+                <>
+                    <HeaderNavigationStyled>
+                        <header id="navbar" className={'navbar container navbar-default'}>
+                            <div className={'container main'}>
+                                <ul className={'links'}>
+                                    <li className={'first'}><Link to='/topic/news' className={'orange'}>News</Link></li>
+                                    <li className={''}><Link to='/topic/management' className={'sea-blue'}>Management</Link></li>
+                                    <li className={''}><Link to='/topic/impact-assesment' className={'khaki'}>Impact Assesment</Link></li>
+                                    <li className={''}><Link to='/topic/sustainability' className={''}>Sustainability</Link></li>
+                                    <li className={''}><Link to='/topic/knowledge-centre' className={'purple'}>Knowledge Centre</Link></li>
+                                    <li className={''}><Link to='/topic/jobs' className={'blueish-green'}>Jobs</Link></li>
+                                    <li className={'last'} onClick={()=>{context!.toggleModalMenu()}}>Topic</li>
+                                </ul>
+                            </div>
+                            <div className={'grey-bg row'}>
+        
+                            </div>
+                        </header>
+                    </HeaderNavigationStyled>
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+                    <ModalComponent 
+                        show={context!.modalMenu} 
+                        handleClose={()=>{context!.toggleModalMenu()}} 
+                        dialogClass={'modal-100w mt-0'}
+                        header={<HeaderModalTitleStyled> Topic </HeaderModalTitleStyled>}
+                    >
+                        <HeaderTopicLinks links={TopicLinks}/>
+                    </ModalComponent>
 
-    return(
-        <>
-        <HeaderNavigationStyled>
-            <header id="navbar" className={'hidden-xs hidden-sm hidden-md navbar container navbar-default'}>
-                <div className={'container main'}>
-                    <ul className={'links'}>
-                        <li className={'first'}><Link to='/topic/news' className={'orange'}>News</Link></li>
-                        <li className={''}><Link to='/topic/management' className={'sea-blue'}>Management</Link></li>
-                        <li className={''}><Link to='/topic/impact-assesment' className={'khaki'}>Impact Assesment</Link></li>
-                        <li className={''}><Link to='/topic/sustainability' className={''}>Sustainability</Link></li>
-                        <li className={''}><Link to='/topic/knowledge-centre' className={'purple'}>Knowledge Centre</Link></li>
-                        <li className={''}><Link to='/topic/jobs' className={'blueish-green'}>Jobs</Link></li>
-                        <li className={'last'} onClick={handleShow}>Topic</li>
-                    </ul>
-                </div>
-                <div className={'grey-bg row'}>
-
-                </div>
-            </header>
-        </HeaderNavigationStyled>
-        <ModalComponent 
-            show={show} 
-            handleClose={handleClose} 
-            dialogClass={'modal-100w mt-0'}
-            header={<HeaderModalTitleStyled> Topic </HeaderModalTitleStyled>}
-        >
-            <HeaderTopicLinks links={TopicLinks}/>
-        </ModalComponent>
-        </>
-    );
+                    {/* <Example /> */}
+                </>
+            );
+        }}
+    </AppContextConsumer>
 };
+
+function CustomToggle( props: any ) {
+    const decoratedOnClick = useAccordionToggle(props.eventKey, () =>
+        console.log('totally custom!'),
+    );
+
+    return (
+        <button
+        type="button"
+        style={{ backgroundColor: 'pink' }}
+        onClick={decoratedOnClick}
+        >
+        {props.children}
+        </button>
+    );
+}
+
+function Example() {
+    return (
+    <>
+      <Accordion defaultActiveKey="0">
+      <CustomToggle eventKey="1">Click me!</CustomToggle>
+        <Card>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>Hello! I'm another body</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </Accordion>
+    </>
+    );
+  }
 
 const HeaderNavigationStyled = styled.div`
     .navbar {

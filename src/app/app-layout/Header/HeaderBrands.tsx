@@ -11,9 +11,15 @@ const HeaderBrands: React.FC = ()=>{
                 <nav className={'navbar navbar container navbar-default'} role={'navigation'}>
                 <div className={'navbar-header'}>
                 <Row>
-                    <Col md={4} className={'md-down-hide'}><IemaLogo /></Col>
-                    <Col md={4}><TransformLogo /></Col>
-                    <Col md={4}><SearchInput /></Col>
+                    <Col md={0} lg={4} className={'hidden-xs hidden-sm hidden-md'}>
+                        <IemaLogo />
+                    </Col>
+                    <Col md={12} lg={4}>
+                        <TransformLogo /><div style={{float:'right'}}> menu </div>
+                    </Col>
+                    <Col md={0} lg={4} className={'hidden-xs hidden-sm hidden-md'}>
+                        <SearchInput />
+                    </Col>
                 </Row>
                 </div>
                 </nav>
@@ -23,6 +29,7 @@ const HeaderBrands: React.FC = ()=>{
 };
 
 const HeaderBrandsStyled = styled.div`
+    width: 100%;
     #logobar{
         border-bottom: 1px solid #8a8a8a;
         padding-bottom: 4px;

@@ -14,7 +14,8 @@ const TransformLogo: React.FC = ()=>{
 };
 
 const Wrapper = styled.div`
-    position: relative; 
+    position: relative;
+    float: left;
 `;
 
 export default TransformLogo;

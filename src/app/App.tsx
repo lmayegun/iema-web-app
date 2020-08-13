@@ -2,8 +2,7 @@ import React from 'react';
 import {Router} from 'react-router';
 import {Provider} from 'react-redux';
 
-import routes from './configs/routesConfig';
-import {AppContextProvider} from './AppContext';
+import {AppProvider} from './AppContext';
 import history from '../@history';
 import store from './store';
 
@@ -15,13 +14,13 @@ import {ReactRouterConfig} from './route-systems';
 const App: React.FC = ()=> {
 
   return (
-    <AppContextProvider value={{routes}}>
+    <AppProvider>
       <Provider store={store}>
         <Router history={history}>
           <ReactRouterConfig />
         </Router>
       </Provider>
-    </AppContextProvider>
+    </AppProvider>
   );
 };
 
