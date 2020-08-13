@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components'; 
 
 import {ModalComponent} from 'src/@localpkg'
+import HeaderTopicLinks from 'src/app/app-layout/Header/HeaderTopicLinks';
+import TopicLinks from './TopicModalLinks.json';
 
 const HeaderNavigation: React.FC = ()=>{
     const [show, setShow] = useState(false);
@@ -34,10 +36,9 @@ const HeaderNavigation: React.FC = ()=>{
             show={show} 
             handleClose={handleClose} 
             dialogClass={'modal-100w mt-0'}
-            header={<h2 className="modal-title text-center">Topic</h2>}
-            footer={<h2> woo2 </h2>}
+            header={<HeaderModalTitleStyled> Topic </HeaderModalTitleStyled>}
         >
-            asas
+            <HeaderTopicLinks links={TopicLinks}/>
         </ModalComponent>
         </>
     );
@@ -85,6 +86,12 @@ const HeaderNavigationStyled = styled.div`
             width: 100%;
         }
     }
+`;
+
+const HeaderModalTitleStyled = styled.h2`
+    border-bottom: 2px solid #000;
+    padding-bottom: 13px;
+    font: 50px 'MuseoSlab-300',Helvetica,Arial,sans-serif !important;
 `;
 
 export default HeaderNavigation;
