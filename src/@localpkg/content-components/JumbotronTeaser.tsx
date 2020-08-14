@@ -48,13 +48,18 @@ const JumbotronTeaserStyled = styled.div`
         max-width: 100%;
     }
     .jumbotron-content{
-        margin-top: 120px;
-        margin-left: -120px;
         margin-bottom: 20px;
         max-width: 100%;
         min-height: 220px;
         background: white;
         padding: 36px 20px 20px;
+    }
+
+    @media (min-width: 992px){
+        .jumbotron-content{
+            margin-top: 120px;
+            margin-left: -120px;
+        }
     }
 `;
 

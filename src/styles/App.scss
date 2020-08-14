@@ -6,6 +6,13 @@ $theme-colors: (
 
 @import "~bootstrap/scss/bootstrap";
 
+#root, body, html {
+    width: 100%;
+    height: 100%;
+    overflow: overlay;
+    position: relative;
+}
+
 .orange{ color: orange;}
 .sea-blue{ color: #407ec9;}
 .khaki{ color: #8c9547;}
