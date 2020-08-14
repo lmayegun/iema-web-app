@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {FooterMenus} from 'src/app/app-layout/Footer';
+import {FooterMenus, FooterTopRow} from 'src/app/app-layout/Footer';
 
 const FooterWrapper: React.FC = ()=>{
   return(
     <FooterWrapperStyled>
+      <FooterTopRow/>
       <FooterMenus/>
     </FooterWrapperStyled> 
   );
