@@ -4,9 +4,10 @@ import {renderRoutes, RouteConfigComponentProps} from 'react-router-config';
 import {ThemeProvider} from 'styled-components';
 import styled from 'styled-components';
 
-import {appTheme} from '../configs/appTheme';
-import Page from './Page'
-import { HeaderWrapper } from './Header'
+import { appTheme } from '../configs/appTheme';
+import Page from './Page';
+import { HeaderWrapper } from './Header';
+import { FooterWrapper } from './Footer';
 
 const AppWrapper = ({ route }: RouteConfigComponentProps) => {
     return(
@@ -18,7 +19,8 @@ const AppWrapper = ({ route }: RouteConfigComponentProps) => {
                         <MainContainer>
                             {renderRoutes(route!.routes)}
                         </MainContainer>
-                    </Suspense>   
+                    </Suspense>
+                    <FooterWrapper/>   
                 </Page>
             </Container>
         </ThemeProvider>
