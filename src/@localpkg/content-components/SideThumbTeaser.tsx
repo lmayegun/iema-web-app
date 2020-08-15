@@ -25,20 +25,20 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
         <Col sm={12} className={`padding-0`}>
             <div className={'teaser'}>
                 <div className={'teaser-img'}>
-                    <img 
-                        src={urlToImage}
-                        alt={'thumb-img'}
-                        className={'img-responsive'}
-                    />
+                    <Link to={`/article/${id}`}>
+                        <img 
+                            src={urlToImage}
+                            alt={'thumb-img'}
+                            className={'img-responsive'}
+                        />
+                    </Link>
                 </div>
                 <div className={'teaser-content'}>
                     <h3>
                         <Link to={`/article/${id}`}> {title} </Link>
                     </h3>
                     {(showSummary) && (
-                        <p>
-                            <div dangerouslySetInnerHTML={{__html:description}}/>
-                        </p>
+                        <p dangerouslySetInnerHTML={{__html:description}}/>
                     )}
 
                     <div className={'type-text-wrapper'}>
@@ -60,7 +60,7 @@ const SideThumbTeaserStyled = styled.div`
     margin-bottom: 20px;
     .teaser {
         position: relative;
-        padding-bottom: 27px;
+        padding-bottom: 5px;
 
         .teaser-img{
             display: table-cell;

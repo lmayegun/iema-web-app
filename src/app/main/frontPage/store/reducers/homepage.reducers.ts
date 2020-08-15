@@ -18,6 +18,12 @@ export default function reducer( state = initialState, action: ArticleActionType
                 newsTeaserState: action.payload
             }
         }
+        case homepageReducersId.FEATURES_TEASER_SUCCESS: {
+            return{
+                ...state,
+                featuresTeaserState: action.payload
+            }
+        }
         default:
             return state
     }

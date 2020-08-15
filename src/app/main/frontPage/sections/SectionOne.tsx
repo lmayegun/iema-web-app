@@ -9,10 +9,10 @@ import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
 import withReducer from 'src/app/store/withReducer';
 import {Article} from 'src/app/main/types';
 
-const sectionOneNewsJumbotron = ( state: any ) => state.homepage.articles.newsJumbotronState;
-const sectionOneNewsTeasers = ( state: any ) => state.homepage.articles.newsTeaserState;
-
 const SectionOne: React.FC = ()=>{
+    const sectionOneNewsJumbotron = ( state: any ) => state.homepage.articles.newsJumbotronState;
+    const sectionOneNewsTeasers = ( state: any ) => state.homepage.articles.newsTeaserState;
+    
     const dispatch = useDispatch();
     const jumbotronArticleState = useSelector(sectionOneNewsJumbotron);
     const newsTeaserState = useSelector(sectionOneNewsTeasers);

@@ -27,7 +27,6 @@ function* getHomepageArticlesWorker(payload : any) {
       try{
         const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=2&skip=1`)
                               .then( res => {
-                                console.log(res.data)
                                 return res.data;
                               })
                               .catch(err =>{
@@ -35,6 +34,25 @@ function* getHomepageArticlesWorker(payload : any) {
                               });
         yield put({
           type: homepageReducersId.NEWS_TEASER_SUCCESS,
+          payload: request
+        })
+      }catch(e){
+
+      }
+      break;
+    }
+    case homepageReducersId.FEATURES_TEASER: {
+      try{
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=3&skip=1`)
+                              .then( res => {
+                                console.log(res.data)
+                                return res.data;
+                              })
+                              .catch(err =>{
+                                console.log(err);
+                              });
+        yield put({
+          type: homepageReducersId.FEATURES_TEASER_SUCCESS,
           payload: request
         })
       }catch(e){

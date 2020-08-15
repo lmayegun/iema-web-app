@@ -1,6 +1,7 @@
 import React from 'react';
 import {Jumbotron, Row, Col} from 'react-bootstrap';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 import {Article} from 'src/app/main/types';
 import BoxTitleSummary from './BoxTitleSummary';
@@ -15,23 +16,25 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
     if(!article){
         return <h5> not showing</h5>
     }
-    const { title, urlToImage, description, tags, publishedOn } = article[0];
+    const { id, title, urlToImage, description, tags, publishedOn } = article[0];
     return(
         <JumbotronTeaserStyled>
             <Jumbotron>
                 <Row>
                     <Col md={7}>
-                        <img 
-                            src={`${urlToImage}`} 
-                            alt={``}
-                            className={`img-responsive jumbotron-img`}
-                        />
+                        <Link to={`/article/${id}`}>
+                            <img 
+                                src={`${urlToImage}`} 
+                                alt={``}
+                                className={`img-responsive jumbotron-img`}
+                            />
+                        </Link>
                     </Col>
                     <Col md={5}>
                         <div className={`jumbotron-content text-center`}>
                             <BoxTitleSummary>
                                 <h3> {title} </h3>
-                                <p> <div dangerouslySetInnerHTML={{__html: description}}/> </p>
+                                <p dangerouslySetInnerHTML={{__html: description}}/>
                                 <Tags tags={tags}/>
                                 <Date date={publishedOn}/>
                             </BoxTitleSummary>
