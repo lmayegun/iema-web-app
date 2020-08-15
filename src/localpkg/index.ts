@@ -1,1 +1,0 @@
-export {default as JumbotronTeaser} from './content-components/JumbotronTeaser';

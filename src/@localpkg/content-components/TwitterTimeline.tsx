@@ -3,25 +3,21 @@ import styled from 'styled-components';
 
 import PaneTitle from './PaneTitle'
 
-interface TwitterTimelineProps{
-    className?: string;
-}
-
-const TwitterTimeline: React.FC<TwitterTimelineProps> = ({className})=>{
+const TwitterTimeline: React.FC = ()=>{
     return(
         <div>
             <PaneTitle title={"Twitter"} />
-            <div className={className}> 
+            <TwitterTimelineStyled> 
                 <a className={"twitter-timeline"} 
                 href="https://twitter.com/IEMA_Transform?ref_src=twsrc%5Etfw"> </a> 
-            </div>
+            </TwitterTimelineStyled>
         </div>
     );
 };
 
-const TwitterTimelineStyled = styled(TwitterTimeline)`
-    height:350px;
+const TwitterTimelineStyled = styled.div`
+    height:450px;
     overflow:auto;
 `;
 
-export default TwitterTimelineStyled; 
+export default React.memo(TwitterTimeline); 

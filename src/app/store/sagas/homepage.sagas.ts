@@ -7,7 +7,7 @@ function* getHomepageArticlesWorker(payload : any) {
   switch (payload.payload.reducer){
     case homepageReducersId.NEWS_JUMBOTRON:{
       try{
-        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news`)
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=1`)
                               .then( res => {
                                 return res.data;
                               })
@@ -16,7 +16,7 @@ function* getHomepageArticlesWorker(payload : any) {
                               });
         yield put({
           type:homepageReducersId.NEWS_JUMBOTRON_SUCCESS, 
-          payload: request.slice(0,1)
+          payload: request
         });
       }catch(e){
 
@@ -24,10 +24,22 @@ function* getHomepageArticlesWorker(payload : any) {
       break;
     }
     case homepageReducersId.NEWS_TEASER: {
-      yield put({
-        type: homepageReducersId.NEWS_TEASER_SUCCESS,
-        payload: 'latest two news'
-      })
+      try{
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=2&skip=1`)
+                              .then( res => {
+                                console.log(res.data)
+                                return res.data;
+                              })
+                              .catch(err =>{
+                                console.log(err);
+                              });
+        yield put({
+          type: homepageReducersId.NEWS_TEASER_SUCCESS,
+          payload: request
+        })
+      }catch(e){
+
+      }
       break;
     }
   }

@@ -3,15 +3,23 @@ import styled from 'styled-components';
 import {Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
+import {Article} from 'src/app/main/types';
 import Tags from './Tags';
 import Date from './Date';
 
 interface SideThumbTeaserProps {
     className?: string;
     showSummary?: boolean;
+    article?: Article;
 }
 
-const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary})=>{
+const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary, article})=>{
+    if(!article){
+        return <h5> not showing</h5>
+    }
+    console.log('SideThumbTeaser article',article)
+
+    const { id, title, urlToImage, description } = article;
     return(
         <div className={`${className}`}>
         <SideThumbTeaserStyled>
@@ -19,18 +27,18 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
             <div className={'teaser'}>
                 <div className={'teaser-img'}>
                     <img 
-                        src={'https://transform.iema.net/sites/default/files/styles/thumbnail_200x120/public/s3/hero/web_child_pollution_istock-852229954_0_0.png?itok=VFBxbrfP'}
+                        src={urlToImage}
                         alt={'thumb-img'}
                         className={'img-responsive'}
                     />
                 </div>
                 <div className={'teaser-content'}>
                     <h3>
-                        <Link to={'/article/:id'}> Air pollution exposure linked to higher COVID-19 risk </Link>
+                        <Link to={`/article/${title}`}> {title} </Link>
                     </h3>
                     {(showSummary) && (
                         <p>
-                            A recent study in the Netherlands has provided further evidence to suggest that exposure to higher levels of air pollution increases the risk of death from COVID-19.
+                            {description}
                         </p>
                     )}
 

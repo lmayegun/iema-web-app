@@ -16,7 +16,6 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
         return <h5> not showing</h5>
     }
     const { title, urlToImage} = article[0];
-    console.log(title, 'nuisance')
     return(
         <JumbotronTeaserStyled>
             <Jumbotron>

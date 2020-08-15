@@ -8,7 +8,7 @@ const SectionSeven: React.FC = ()=>{
     <>
       <PaneTitle title={'IEMA News'}/>
       <Row>
-        <Col md={6}><SideThumbTeaser /></Col>
+        <Col md={6}><SideThumbTeaser showSummary={true}/></Col>
         <Col md={6}><SideThumbTeaser /></Col>
         <Col md={6}><SideThumbTeaser /></Col>
         <Col md={6}><SideThumbTeaser /></Col>

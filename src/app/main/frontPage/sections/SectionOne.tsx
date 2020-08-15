@@ -7,14 +7,18 @@ import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
 import withReducer from 'src/app/store/withReducer';
+import {Article} from 'src/app/main/types';
 
-const selectArticles = ( state: any ) => state.homepage.articles.newsJumbotronState;
+const sectionOneNewsJumbotron = ( state: any ) => state.homepage.articles.newsJumbotronState;
+const sectionOneNewsTeasers = ( state: any ) => state.homepage.articles.newsTeaserState;
 
 const SectionOne: React.FC = ()=>{
     const dispatch = useDispatch();
-    const jumbotronArticleState = useSelector(selectArticles);
+    const jumbotronArticleState = useSelector(sectionOneNewsJumbotron);
+    const newsTeaserState = useSelector(sectionOneNewsTeasers);
 
     const [jumbotronArticle, setJumbotronArticle] = useState(jumbotronArticleState)
+    const [newsTeasers, setNewsTeasers] = useState(newsTeaserState);
 
     useEffect(()=>{
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_JUMBOTRON}));
@@ -23,9 +27,17 @@ const SectionOne: React.FC = ()=>{
 
     useEffect(()=>{
         setJumbotronArticle(jumbotronArticleState);
-    },[jumbotronArticleState, setJumbotronArticle])
+        setNewsTeasers(newsTeaserState);
+    },
+    [
+     jumbotronArticleState,
+     newsTeaserState, 
+     setJumbotronArticle, 
+     setNewsTeasers
+    ]);
+    
 
-    if( !jumbotronArticle ){
+    if( !jumbotronArticle || !newsTeasers ){
         return <h1> nothing to see </h1>
     }
 
@@ -37,8 +49,17 @@ const SectionOne: React.FC = ()=>{
             </Col>
             <Row>
                 <Col sm={6}>
-                    <SideThumbTeaser />
-                    <SideThumbTeaser />
+                    {
+                        newsTeasers.map((article: Article, index: number)=>{
+                            return(
+                                <SideThumbTeaser 
+                                    key={index}
+                                    showSummary
+                                    article={article}
+                                />
+                            );
+                        })
+                    }
                 </Col>
                 <Col sm={6} className={'padding-0 text-center'}>
                     Ad Board 
