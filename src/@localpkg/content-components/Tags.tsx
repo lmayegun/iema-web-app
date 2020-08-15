@@ -1,23 +1,28 @@
 import React from 'react'; 
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 interface TagsProps {
     className?: string;
+    tags?: []
 }
 
-const Tags: React.FC<TagsProps> = ({className})=>{
+const Tags: React.FC<TagsProps> = ({className, tags})=>{
+    if(!tags){
+        return(
+            <p> no Tags</p>
+        );
+    }
     return(
         <TagsStyled>
             <span className={`${className} type-text`}>
-                <a href="/">
-                    Biodiversity 
-                </a>|
-                <a href="/">
-                    Biodiversity 
-                </a>|
-                <a href="/">
-                    Wildlife & Habitats 
-                </a>|
+                {
+                    tags.map(( tag: string, index: number)=>{
+                        return(
+                            <Link to='/' key={index}>{tag}</Link>
+                        );
+                    })
+                }
             </span>
         </TagsStyled>
     );

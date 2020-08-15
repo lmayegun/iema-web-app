@@ -18,6 +18,8 @@ export interface Article{
     title: string;
     urlToImage: string;
     description: string;
+    tags?: [];
+    date?: string;
 }
 
 export interface HomepageState {

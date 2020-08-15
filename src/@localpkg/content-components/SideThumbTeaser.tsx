@@ -17,9 +17,8 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
     if(!article){
         return <h5> not showing</h5>
     }
-    console.log('SideThumbTeaser article',article)
 
-    const { id, title, urlToImage, description } = article;
+    const { id, title, urlToImage, description, tags } = article;
     return(
         <div className={`${className}`}>
         <SideThumbTeaserStyled>
@@ -34,16 +33,16 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
                 </div>
                 <div className={'teaser-content'}>
                     <h3>
-                        <Link to={`/article/${title}`}> {title} </Link>
+                        <Link to={`/article/${id}`}> {title} </Link>
                     </h3>
                     {(showSummary) && (
                         <p>
-                            {description}
+                            <div dangerouslySetInnerHTML={{__html:description}}/>
                         </p>
                     )}
 
                     <div className={'type-text-wrapper'}>
-                        <Tags />
+                        <Tags tags={tags}/>
                     </div>
 
                     <div className={'type-date-wrapper'}>
