@@ -2,14 +2,18 @@ import React from 'react';
 import styled from 'styled-components'; 
 
 interface DateProps {
+    date?: string;
     className?: string;
 }
 
-const Date: React.FC<DateProps> = (props)=>{
+const Date: React.FC<DateProps> = ({className, date})=>{
+    if(!date){
+        return <p> No date </p>
+    }
     return(
-        <span className={`${props.className} date-text`}>
-            30 July 2020
-        </span>
+        <p className={`${className} date-text`}>
+            {date}
+        </p>
     );
 };
 

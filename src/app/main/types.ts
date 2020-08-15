@@ -19,7 +19,7 @@ export interface Article{
     urlToImage: string;
     description: string;
     tags?: [];
-    date?: string;
+    publishedOn?: string;
 }
 
 export interface HomepageState {

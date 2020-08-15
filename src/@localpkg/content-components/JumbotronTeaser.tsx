@@ -15,7 +15,7 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
     if(!article){
         return <h5> not showing</h5>
     }
-    const { title, urlToImage} = article[0];
+    const { title, urlToImage, description, tags, publishedOn } = article[0];
     return(
         <JumbotronTeaserStyled>
             <Jumbotron>
@@ -31,8 +31,9 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
                         <div className={`jumbotron-content text-center`}>
                             <BoxTitleSummary>
                                 <h3> {title} </h3>
-                                <p> Almost a quarter of Britain's native mammals are now at “imminent risk” of extinction, according to the Mammal Society's first official endangered list. </p>
-                                <Tags /> <Date />
+                                <p> <div dangerouslySetInnerHTML={{__html: description}}/> </p>
+                                <Tags tags={tags}/>
+                                <Date date={publishedOn}/>
                             </BoxTitleSummary>
                         </div>
                     </Col>

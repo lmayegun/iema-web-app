@@ -18,7 +18,7 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
         return <h5> not showing</h5>
     }
 
-    const { id, title, urlToImage, description, tags } = article;
+    const { id, title, urlToImage, description, tags, publishedOn } = article;
     return(
         <div className={`${className}`}>
         <SideThumbTeaserStyled>
@@ -46,7 +46,7 @@ const SideThumbTeaser: React.FC<SideThumbTeaserProps> = ({className, showSummary
                     </div>
 
                     <div className={'type-date-wrapper'}>
-                        <Date />
+                        <Date date={publishedOn}/>
                     </div>
                 </div>
             </div>
