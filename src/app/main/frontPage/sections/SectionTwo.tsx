@@ -29,7 +29,7 @@ const SectionTwo: React.FC = ()=>{
     ]);
 
     if( !featuresTeasers ){
-        return <h1> nothing to see </h1>
+        return <h1> nothing to see here </h1>
     }
 
     return(
