@@ -37,7 +37,6 @@ const SectionTwo: React.FC = ()=>{
             <PaneTitle title="Features" />
             <Row>
                 <Col sm={6}>
-                    hhh
                     {
                         featuresTeasers.map((article: Article, index: number)=>{
                             return(
