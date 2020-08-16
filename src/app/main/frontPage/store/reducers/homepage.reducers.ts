@@ -24,6 +24,12 @@ export default function reducer( state = initialState, action: ArticleActionType
                 featuresTeaserState: action.payload
             }
         }
+        case homepageReducersId.EDITORS_PICK_SUCCESS: {
+            return{
+                ...state,
+                editorsPickState: action.payload
+            }
+        }
         default:
             return state
     }

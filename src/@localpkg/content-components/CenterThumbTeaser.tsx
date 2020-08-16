@@ -1,17 +1,25 @@
 import React from 'react';
 import {Col} from 'react-bootstrap';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
+import {Article} from 'src/app/main/types';
 import Tags from './Tags';
 import Date from './Date';
 
 interface CenterThumbTeaserProps {
     className?: string;
     overlapContent: boolean;
+    article?: Article[]
 }
 
-const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlapContent})=>{
+const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlapContent, article})=>{
 
+    if( !article ){
+        return <h1> no article is set </h1>
+    }
+
+    const {id, title, urlToImage, description, tags, publishedOn} = article[0];
     const size = overlapContent ? 'large' : 'normal';
 
     return(
@@ -21,7 +29,7 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
                     <div className={`thumbnail-image promoted`}>
                         <a href='/'>
                             <img 
-                                src={'https://transform.iema.net/sites/default/files/s3/hero/web_p26-28_natrual-intelligence_shutterstock-551809147.png'} 
+                                src={urlToImage} 
                                 alt={'center-thumbs'}
                                 className={'img-responsive'}
                             />
@@ -31,11 +39,11 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
                         <div className={'thumbnail-content text-center'}>
                             <strong>Ediror's Pick</strong>
                             <h3>
-                                <a href='/'>Natural intelligence</a>
+                                <Link to={`article/${id}`}>{title}</Link>
                             </h3>
                             <div className={'type-text-wrapper'}>
-                                <Tags />
-                                <Date />
+                                <Tags tags={tags}/>
+                                <Date date={publishedOn}/>
                             </div>
                         </div>
                     )}

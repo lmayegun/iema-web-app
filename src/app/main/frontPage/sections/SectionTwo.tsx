@@ -8,27 +8,33 @@ import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import {Article} from 'src/app/main/types';
 
 const sectionTwoFeatureTeasers = ( state: any ) => state.homepage.articles.featuresTeaserState;
+const sectionEditorsPick = ( state: any ) => state.homepage.articles.editorsPickState;
 
 const SectionTwo: React.FC = ()=>{
     const dispatch = useDispatch();
     const featuresTeaserState = useSelector(sectionTwoFeatureTeasers);
+    const editorsPickState = useSelector(sectionEditorsPick);
 
     const [featuresTeasers, setFeaturesTeasers] = useState(featuresTeaserState);
+    const [editorsPick, setEditorsPick] = useState(editorsPickState);
 
     useEffect(()=>{
         dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.FEATURES_TEASER}));
-        // dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.NEWS_TEASER}));
+        dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.EDITORS_PICK}));
     },[dispatch]);
 
     useEffect(()=>{
         setFeaturesTeasers(featuresTeaserState);
+        setEditorsPick(editorsPickState);
     },
     [
      featuresTeaserState, 
-     setFeaturesTeasers
+     setFeaturesTeasers,
+     editorsPickState,
+     setEditorsPick,
     ]);
 
-    if( !featuresTeasers ){
+    if( !featuresTeasers || !editorsPick ){
         return <h1> nothing to see here </h1>
     }
 
@@ -50,7 +56,10 @@ const SectionTwo: React.FC = ()=>{
                     }
                 </Col>
                 <Col sm={6} className={'padding-0 text-center'}>
-                    <CenterThumbTeaser overlapContent={true}/>
+                    <CenterThumbTeaser 
+                        overlapContent={true}
+                        article={editorsPick}
+                    />
                 </Col>
             </Row>
         </div>
