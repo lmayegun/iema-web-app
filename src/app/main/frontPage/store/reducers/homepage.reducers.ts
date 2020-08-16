@@ -48,6 +48,12 @@ export default function reducer( state = initialState, action: ArticleActionType
                 knowledgeTeaserState: action.payload
             }
         }
+        case homepageReducersId.MOST_POPULAR_SUCCESS: {
+            return{
+                ...state,
+                mostPopularState: action.payload
+            }
+        }
         default:
             return state
     }

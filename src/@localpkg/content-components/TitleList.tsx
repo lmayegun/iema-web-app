@@ -1,38 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
+
+import {Article} from 'src/app/main/types';
 
 interface TitleListProps {
     contents?: {}
-    width?: number
+    width?: number,
+    articles?: Article[] 
 }
 
 interface Wrapper{
     width: string
   };
 
-const TitleList: React.FC<TitleListProps> = ({width})=>{
+const TitleList: React.FC<TitleListProps> = ({width, articles})=>{
+    if(!articles){
+        return <h1> articles is undefined </h1>
+    }
+    console.log('yey most popular', articles)
     return(
         <div>
             <TitleListStyled width={`${width}%`}>
                 <ol className={'custom-ordered-list'}>
-                    <li>
-                        <a href="/">Natural intelligence</a>
-                    </li> 
-                    <li>
-                        <a href="/">Staying in the loop</a>
-                    </li>
-                    <li>
-                        <a href="/">Running on empty</a>
-                    </li>
-                    <li>
-                        <a href="/">Distance Learning</a>
-                    </li>
-                    <li>
-                        <a href="/">Investment of £5bn could unlock £100bn green recovery, study finds</a>
-                    </li>    
-                    <li>
-                        <a href="/">Quarter of UK's native mammals now at risk of extinction</a>
-                    </li>    
+                    {
+                        articles.map((article: Article, index: number)=>{
+                            return(
+                                <li key={index}>
+                                    <Link to={`article/${article.id}`}>{article.title}</Link>
+                                </li> 
+                            );
+                        })
+                    }  
                 </ol>
             </TitleListStyled>
         </div>
