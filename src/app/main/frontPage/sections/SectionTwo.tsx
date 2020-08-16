@@ -56,10 +56,16 @@ const SectionTwo: React.FC = ()=>{
                     }
                 </Col>
                 <Col sm={6} className={'padding-0 text-center'}>
-                    <CenterThumbTeaser 
-                        overlapContent={true}
-                        article={editorsPick}
-                    />
+                    {
+                        editorsPick.map((article: Article, index: number)=>{
+                            return(
+                                <CenterThumbTeaser 
+                                    overlapContent={true}
+                                    article={article}
+                                />
+                            )
+                        })
+                    }
                 </Col>
             </Row>
         </div>

@@ -21,7 +21,7 @@ const Topic: React.FC<TopicProps> = ({match})=>{
         <Col md={12}>
           <PaneTitle title={topic}/>
           <div className={'row top'}>
-            <Col md={4} className={'content'}>
+            {/* <Col md={4} className={'content'}>
               <CenterThumbTeaser overlapContent={false}/>
             </Col>
             <Col md={4} className={'content'}>
@@ -29,7 +29,7 @@ const Topic: React.FC<TopicProps> = ({match})=>{
             </Col>
             <Col md={4} className={'content'}>
               <CenterThumbTeaser overlapContent={false}/>
-            </Col>
+            </Col> */}
           </div>
         </Col>
       </Row>

@@ -10,7 +10,7 @@ import Date from './Date';
 interface CenterThumbTeaserProps {
     className?: string;
     overlapContent: boolean;
-    article?: Article[]
+    article: Article
 }
 
 const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlapContent, article})=>{
@@ -19,7 +19,7 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
         return <h1> no article is set </h1>
     }
 
-    const {id, title, urlToImage, description, tags, publishedOn} = article[0];
+    const {id, title, urlToImage, description, tags, publishedOn} = article;
     const size = overlapContent ? 'large' : 'normal';
 
     return(
@@ -50,13 +50,13 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
                     { overlapContent === false && (
                         <div className={'thumbnail-content'}>
                             <h3>
-                                <a href='/'>RRC Launch New Courses: IEMA Sustainability Skills for the Workforce & Managers</a>
+                                <Link to={`article/${id}`}>{title}</Link>
                             </h3>
                             <div className={'type-text-wrapper'}>
-                                <Tags />
+                                <Tags tags={tags}/>
                             </div>
                             <div className={'date-text-wrapper'}>
-                                <Date />
+                                <Date date={publishedOn}/>
                             </div>
                         </div>
                     )}

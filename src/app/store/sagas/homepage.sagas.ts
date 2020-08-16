@@ -77,6 +77,24 @@ function* getHomepageArticlesWorker(payload : any) {
       }
       break;
     }
+    case homepageReducersId.PROMOTED_TEASERS: {
+      try{
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=3&skip=1`)
+                              .then( res => {
+                                return res.data;
+                              })
+                              .catch(err =>{
+                                console.log(err);
+                              });
+        yield put({
+          type: homepageReducersId.PROMOTED_TEASERS_SUCCESS,
+          payload: request
+        })
+      }catch(e){
+
+      }
+      break;
+    }
   }
 }
 
