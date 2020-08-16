@@ -36,6 +36,18 @@ export default function reducer( state = initialState, action: ArticleActionType
                 promotedTeasersState: action.payload
             }
         }
+        case homepageReducersId.KNOWLEDGE_JUMBOTRON_SUCCESS: {
+            return{
+                ...state,
+                knowledgeJumbotronState: action.payload
+            }
+        }
+        case homepageReducersId.KNOWLEDGE_TEASER_SUCCESS: {
+            return{
+                ...state,
+                knowledgeTeaserState: action.payload
+            }
+        }
         default:
             return state
     }

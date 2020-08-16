@@ -40,7 +40,7 @@ const SectionThree: React.FC = ()=>{
                     {
                         promotedTeasers.map((article: Article, index: number)=>{
                             return(
-                                <Col bsPrefix={`padding-0 col-sm-4`}>
+                                <Col bsPrefix={`padding-0 col-sm-4`} key={index}>
                                     <CenterThumbTeaser 
                                         overlapContent={false}
                                         article={article}

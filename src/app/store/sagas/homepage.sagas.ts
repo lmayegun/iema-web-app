@@ -95,6 +95,42 @@ function* getHomepageArticlesWorker(payload : any) {
       }
       break;
     }
+    case homepageReducersId.KNOWLEDGE_JUMBOTRON:{
+      try{
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=1&skip=2`)
+                              .then( res => {
+                                return res.data;
+                              })
+                              .catch(err =>{
+                                console.log(err);
+                              });
+        yield put({
+          type:homepageReducersId.KNOWLEDGE_JUMBOTRON_SUCCESS, 
+          payload: request
+        });
+      }catch(e){
+
+      }
+      break;
+    }
+    case homepageReducersId.KNOWLEDGE_TEASER: {
+      try{
+        const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=news&limit=2&skip=2`)
+                              .then( res => {
+                                return res.data;
+                              })
+                              .catch(err =>{
+                                console.log(err);
+                              });
+        yield put({
+          type: homepageReducersId.KNOWLEDGE_TEASER_SUCCESS,
+          payload: request
+        })
+      }catch(e){
+
+      }
+      break;
+    }
   }
 }
 

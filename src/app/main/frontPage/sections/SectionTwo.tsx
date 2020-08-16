@@ -62,6 +62,7 @@ const SectionTwo: React.FC = ()=>{
                                 <CenterThumbTeaser 
                                     overlapContent={true}
                                     article={article}
+                                    key={index}
                                 />
                             )
                         })
