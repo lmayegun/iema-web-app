@@ -5,41 +5,41 @@ import {useDispatch, useSelector} from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import { PaneTitle, CenterThumbTeaser, SideThumbTeaser } from 'src/@localpkg';
-import { getTopicsTopRegion, getTopicsSecondRegion } from 'src/app/main/topicsPage/store/actions';
+import { getTagsTopRegion, getTagsSecondRegion } from 'src/app/main/topicsPage/store/actions';
 import { Article } from 'src/app/main/types';
 import withReducer from 'src/app/store/withReducer';
 import topicsReducer from 'src/app/main/topicsPage/store/reducers'
 
-const selectTopicTopRegion = ( state: any ) => state.topicsData.articles.topicsTopRegionState;
-const selectTopicSecondRegion = ( state: any ) => state.topicsData.articles.topicsSecondRegionState;
+const selectTagTopRegion = ( state: any ) => state.topicsData.tags.tagsTopRegionState;
+const selectTagSecondRegion = ( state: any ) => state.topicsData.tags.tagsSecondRegionState;
 
 const Topics: React.FC<RouteComponentProps> = ( props )=>{
 
-  const topic = props.match.url.split('/')[3];
+  const tag = props.match.url.split('/')[3];
 
   const dispatch = useDispatch();
-  const topicTopRegionState = useSelector(selectTopicTopRegion);
-  const topicSecondRegionState = useSelector(selectTopicSecondRegion);
+  const tagTopRegionState = useSelector(selectTagTopRegion);
+  const tagSecondRegionState = useSelector(selectTagSecondRegion);
 
-  const [topicTopRegion, setTopicTopRegion] = useState(topicTopRegionState);
-  const [topicSecondRegion, setTopicSecondRegion] = useState(topicSecondRegionState);
-
-  useEffect(()=>{
-    dispatch(getTopicsTopRegion({topic:topic}));
-    dispatch(getTopicsSecondRegion({topic:topic}));
-  },[dispatch, topic]);
+  const [tagTopRegion, setTagTopRegion] = useState(tagTopRegionState);
+  const [tagSecondRegion, setTagSecondRegion] = useState(tagSecondRegionState);
 
   useEffect(()=>{
-    setTopicTopRegion(topicTopRegionState);
-    setTopicSecondRegion( topicSecondRegionState);
+    dispatch(getTagsTopRegion({tag:tag}));
+    dispatch(getTagsSecondRegion({tag:tag}));
+  },[dispatch, tag]);
+
+  useEffect(()=>{
+    setTagTopRegion(tagTopRegionState);
+    setTagSecondRegion( tagSecondRegionState);
   },[
-      topicTopRegionState,
-      setTopicTopRegion,
-      topicSecondRegionState,
-      setTopicSecondRegion
+      tagTopRegionState,
+      setTagTopRegion,
+      tagSecondRegionState,
+      setTagSecondRegion
     ]);
 
-  if(!topicTopRegion || !topicSecondRegion){
+  if(!tagTopRegion || !tagSecondRegion){
     return <h1> no data to show </h1>
   }
 
@@ -47,10 +47,10 @@ const Topics: React.FC<RouteComponentProps> = ( props )=>{
     <TopicsStyled>
       <Row>
         <Col md={12}>
-          <PaneTitle title={topic}/>
+          <PaneTitle title={tag}/>
           <div className={'row top'}>
             {
-              topicTopRegion.map((article: Article, index: number)=>{
+              tagTopRegion.map((article: Article, index: number)=>{
                 return(
                   <Col md={4} className={'content'} key={index}>
                     <CenterThumbTeaser 
@@ -68,7 +68,7 @@ const Topics: React.FC<RouteComponentProps> = ( props )=>{
         <Col md={8}>
           <div  className={'first-region-side-teaser'}>
             {
-              topicSecondRegion.map((article: Article, index: number)=>{
+              tagSecondRegion.map((article: Article, index: number)=>{
                 return(
                   <div key={index}>
                     <SideThumbTeaser 

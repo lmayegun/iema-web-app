@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {SideThumbTeaser, PaneTitle} from 'src/@localpkg';
+import { SideThumbTeaser, PaneTitle } from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
-import {Article} from 'src/app/main/types';
+import { Article } from 'src/app/main/types';
 
 const selectIemaNews = ( state: any ) => state.homepage.articles.iemaNewsState;
 

@@ -10,8 +10,8 @@ import { Article } from 'src/app/main/types';
 import withReducer from 'src/app/store/withReducer';
 import topicsReducer from 'src/app/main/topicsPage/store/reducers'
 
-const selectTopicTopRegion = ( state: any ) => state.topicsData.articles.topicsTopRegionState;
-const selectTopicSecondRegion = ( state: any ) => state.topicsData.articles.topicsSecondRegionState;
+const selectTopicTopRegion = ( state: any ) => state.topicsData.topics.topicsTopRegionState;
+const selectTopicSecondRegion = ( state: any ) => state.topicsData.topics.topicsSecondRegionState;
 
 const Topics: React.FC<RouteComponentProps> = ( props )=>{
 

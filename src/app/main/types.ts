@@ -27,7 +27,7 @@ export interface HomepageState {
 }
 
 export interface ArticleFilter{
-    topic: string | Topic;
+    topic?: string | Topic;
     reducer?: string;
     tag?: string; 
 }
@@ -36,7 +36,9 @@ export const articleActionsId = {
     GET_ARTICLES : '[ARTICLES] GET_ARTICLES',
     GET_HOMEPAGE_ARTICLES : '[HOMEPAGE] GET_ARTICLES',
     GET_TOPICS_TOP_REGION : '[TOPICS] TOP_REGION',
-    GET_TOPICS_SECOND_REGION : '[TOPICS] SECOND_REGION'
+    GET_TOPICS_SECOND_REGION : '[TOPICS] SECOND_REGION',
+    GET_TAGS_TOP_REGION : '[TAGS] TOP_REGION',
+    GET_TAGS_SECOND_REGION : '[TAGS] SECOND_REGION'
 }
 
 export const homepageReducersId = {

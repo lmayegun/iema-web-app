@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 
 import topicsReducer from './topics.reducers';
+import tagsReducer from './tags.reducers';
 
 export default 
 combineReducers({
-  articles: topicsReducer
+  topics: topicsReducer,
+  tags: tagsReducer
 }) 
