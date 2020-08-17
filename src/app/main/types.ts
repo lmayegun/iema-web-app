@@ -27,14 +27,15 @@ export interface HomepageState {
 }
 
 export interface ArticleFilter{
-    topic: Topic;
-    reducer: string;
+    topic: string | Topic;
+    reducer?: string;
     tag?: string; 
 }
 
 export const articleActionsId = {
     GET_ARTICLES : '[ARTICLES] GET_ARTICLES',
-    GET_HOMEPAGE_ARTICLES : '[HOMEPAGE] GET_ARTICLES'
+    GET_HOMEPAGE_ARTICLES : '[HOMEPAGE] GET_ARTICLES',
+    GET_TOPICS_TOP_REGION : '[TOPICS] TOP_REGION',
 }
 
 export const homepageReducersId = {

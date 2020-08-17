@@ -12,21 +12,21 @@ const selectIemaNews = ( state: any ) => state.homepage.articles.iemaNewsState;
 const SectionSeven: React.FC = ()=>{
 
   const dispatch = useDispatch();
-    const iemaNewsState = useSelector(selectIemaNews);
+  const iemaNewsState = useSelector(selectIemaNews);
 
-    const [iemaNews, setIemaNews] = useState(iemaNewsState);
+  const [iemaNews, setIemaNews] = useState(iemaNewsState);
 
-    useEffect(()=>{
-        dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.IEMA_NEWS}));
-    },[dispatch]);
+  useEffect(()=>{
+      dispatch(getHomepageArticles({topic:Topic.News, reducer: homepageReducersId.IEMA_NEWS}));
+  },[dispatch]);
 
-    useEffect(()=>{
-        setIemaNews(iemaNewsState);
-    },[iemaNewsState, setIemaNews])
+  useEffect(()=>{
+      setIemaNews(iemaNewsState);
+  },[iemaNewsState, setIemaNews])
 
-    if( !iemaNews ){
-        return <h1> nothing to see </h1>
-    }
+  if( !iemaNews ){
+      return <h1> nothing to see </h1>
+  }
   return(
     <>
       <PaneTitle title={'IEMA News'}/>

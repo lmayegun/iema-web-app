@@ -13,7 +13,7 @@ export const NodesConfig: any = {
       },
       {
           path      : '/topic/:topic',
-          component : React.lazy(() => import('./topicsPage/Topic')),
+          component : React.lazy(() => import('./topicsPage/Topics')),
       }, 
       {
           path      : '/article/:id',
