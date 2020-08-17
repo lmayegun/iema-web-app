@@ -34,7 +34,7 @@ const SectionSeven: React.FC = ()=>{
         {
           iemaNews.map((article: Article, index: number)=>{
             return(
-              <Col md={6}>
+              <Col md={6} key={index}>
                 <SideThumbTeaser 
                   showSummary={true}
                   article={article}
