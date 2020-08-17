@@ -6,3 +6,10 @@ export function getTopicsTopRegion(payload: ArticleFilter) : ArticleActionTypes 
       payload
   };
 };
+
+export function getTopicsSecondRegion(payload: ArticleFilter) : ArticleActionTypes {
+  return{
+      type: articleActionsId.GET_TOPICS_SECOND_REGION,
+      payload
+  };
+};

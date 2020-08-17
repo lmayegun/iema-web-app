@@ -23,9 +23,33 @@ function* getTopicsTopRegionWorker(payload : any) {
   }
 }
 
+function* getTopicsSecondRegionWorker(payload : any) {
+  const {topic} = payload.payload;
+  
+  try{
+    const request = yield axios.get(`https://d8-recruiter-rest-simulator.herokuapp.com/api/articles/?category=${topic}&limit=6`)
+                          .then( res => {
+                            return res.data;
+                          })
+                          .catch(err =>{
+                            console.log(err);
+                          });
+    yield put({
+      type:'[TOPICS SECOND REGION] SUCCESS', 
+      payload: request
+    });
+  }catch(e){
+
+  }
+}
+
 export function* watchGetTopicArticles() {
   yield takeEvery(
     articleActionsId.GET_TOPICS_TOP_REGION,
     getTopicsTopRegionWorker
+  );
+  yield takeEvery(
+    articleActionsId.GET_TOPICS_SECOND_REGION,
+    getTopicsSecondRegionWorker
   );
 }

@@ -5,12 +5,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
 import { PaneTitle, CenterThumbTeaser, SideThumbTeaser } from 'src/@localpkg';
-import { getTopicsTopRegion } from 'src/app/main/topicsPage/store/actions';
+import { getTopicsTopRegion, getTopicsSecondRegion } from 'src/app/main/topicsPage/store/actions';
 import { Article } from 'src/app/main/types';
 import withReducer from 'src/app/store/withReducer';
 import topicsReducer from 'src/app/main/topicsPage/store/reducers'
 
 const selectTopicTopRegion = ( state: any ) => state.topicsData.articles.topicsTopRegionState;
+const selectTopicSecondRegion = ( state: any ) => state.topicsData.articles.topicsSecondRegionState;
 
 const Topics: React.FC<RouteComponentProps> = ( props )=>{
 
@@ -18,18 +19,27 @@ const Topics: React.FC<RouteComponentProps> = ( props )=>{
 
   const dispatch = useDispatch();
   const topicTopRegionState = useSelector(selectTopicTopRegion);
+  const topicSecondRegionState = useSelector(selectTopicSecondRegion);
 
   const [topicTopRegion, setTopicTopRegion] = useState(topicTopRegionState);
+  const [topicSecondRegion, setTopicSecondRegion] = useState(topicSecondRegionState);
 
   useEffect(()=>{
     dispatch(getTopicsTopRegion({topic:topic}));
+    dispatch(getTopicsSecondRegion({topic:topic}));
   },[dispatch, topic]);
 
   useEffect(()=>{
     setTopicTopRegion(topicTopRegionState);
-  },[topicTopRegionState, setTopicTopRegion]);
+    setTopicSecondRegion( topicSecondRegionState);
+  },[
+      topicTopRegionState,
+      setTopicTopRegion,
+      topicSecondRegionState,
+      setTopicSecondRegion
+    ]);
 
-  if(!topicTopRegion){
+  if(!topicTopRegion || !topicSecondRegion){
     return <h1> no data to show </h1>
   }
 
@@ -57,24 +67,18 @@ const Topics: React.FC<RouteComponentProps> = ( props )=>{
       <Row>
         <Col md={8}>
           <div  className={'first-region-side-teaser'}>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
-            <div>
-              <SideThumbTeaser className={'teaser'}/>
-            </div>
+            {
+              topicSecondRegion.map((article: Article, index: number)=>{
+                return(
+                  <div key={index}>
+                    <SideThumbTeaser 
+                      className={'teaser'}
+                      article={article}
+                    />
+                  </div>
+                );
+              })
+            }
           </div>
         </Col>
       </Row>

@@ -13,13 +13,17 @@ const Tags: React.FC<TagsProps> = ({className, tags})=>{
             <p> no Tags</p>
         );
     }
+    const lastIndex =  tags.length - 1;
     return(
         <TagsStyled>
             <span className={`${className} type-text`}>
-                {
+                {   
                     tags.map(( tag: string, index: number)=>{
                         return(
-                            <Link to='/' key={index}>{tag}</Link>
+                            <>
+                                <Link to='/' key={index}> {tag} </Link>  
+                                {index !== lastIndex && <>|</>}
+                            </>
                         );
                     })
                 }
@@ -29,7 +33,11 @@ const Tags: React.FC<TagsProps> = ({className, tags})=>{
 };
 
 const TagsStyled = styled.span`
-    font: 12px 'MuseoSans-700',Helvetica,Arial,sans-serif;
-    color: #474747;
+    .type-text{
+        font: 12px 'MuseoSans-700',Helvetica,Arial,sans-serif;
+        color: #474747;
+        font-weight: 500;
+    }
+    text-transform: capitalize;
 `;
 export default Tags;

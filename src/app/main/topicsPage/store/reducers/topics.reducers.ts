@@ -12,7 +12,13 @@ export default function reducer( state = initialState, action: ArticleActionType
                 topicsTopRegionState: action.payload
             }
         }
+        case '[TOPICS SECOND REGION] SUCCESS': {
+            return{
+                ...state,
+                topicsSecondRegionState: action.payload
+            }
+        }
         default:
-            return state
+            return state;
     }
 }
