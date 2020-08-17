@@ -5,8 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
-import homepageReducer from 'src/app/main/frontPage/store/reducers/index';
-import withReducer from 'src/app/store/withReducer';
 import {Article} from 'src/app/main/types';
 
 const SectionOne: React.FC = ()=>{
@@ -69,4 +67,4 @@ const SectionOne: React.FC = ()=>{
     );
 };
 
-export default withReducer('homepage', homepageReducer)(SectionOne);
+export default SectionOne;
