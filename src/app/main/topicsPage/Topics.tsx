@@ -13,9 +13,7 @@ import topicsReducer from 'src/app/main/topicsPage/store/reducers'
 const selectTopicTopRegion = ( state: any ) => state.topicsData.articles.topicsTopRegionState;
 
 const Topics: React.FC<RouteComponentProps> = ( props )=>{
-  
-  alert('hshs');
-  console.log('odd one out', props);
+
   const topic = props.match.url.split('/')[2];
 
   const dispatch = useDispatch();
