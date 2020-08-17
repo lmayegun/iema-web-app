@@ -14,6 +14,7 @@ const selectTopicTopRegion = ( state: any ) => state.topicsData.articles.topicsT
 
 const Topics: React.FC<RouteComponentProps> = ( props )=>{
   
+  alert('hshs');
   console.log('odd one out', props);
   const topic = props.match.url.split('/')[2];
 
