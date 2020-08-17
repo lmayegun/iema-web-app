@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {PaneTitle, TitleList} from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
-import {Article} from 'src/app/main/types';
 
 const selectMostPopular = ( state: any ) => state.homepage.articles.mostPopularState;
 

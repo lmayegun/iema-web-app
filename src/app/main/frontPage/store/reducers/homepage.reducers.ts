@@ -54,6 +54,12 @@ export default function reducer( state = initialState, action: ArticleActionType
                 mostPopularState: action.payload
             }
         }
+        case homepageReducersId.IEMA_NEWS_SUCCESS: {
+            return{
+                ...state,
+                iemaNewsState: action.payload
+            }
+        }
         default:
             return state
     }
