@@ -39,7 +39,7 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
                         <div className={'thumbnail-content text-center'}>
                             <strong>Ediror's Pick</strong>
                             <h3>
-                                <Link to={`article/${id}`}>{title}</Link>
+                                <Link to={`/article/${id}`}>{title}</Link>
                             </h3>
                             <div className={'type-text-wrapper'}>
                                 <Tags tags={tags}/>
@@ -50,7 +50,7 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
                     { overlapContent === false && (
                         <div className={'thumbnail-content'}>
                             <h3>
-                                <Link to={`article/${id}`}>{title}</Link>
+                                <Link to={`/article/${id}`}>{title}</Link>
                             </h3>
                             <div className={'type-text-wrapper'}>
                                 <Tags tags={tags}/>

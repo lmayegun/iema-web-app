@@ -12,9 +12,15 @@ export const NodesConfig: any = {
           component : React.lazy(() => import('./frontPage/FrontPage')),
       },
       {
+          exact     : true,
           path      : '/topic/:topic',
           component : React.lazy(() => import('./topicsPage/Topics')),
       }, 
+      {
+        exact     : true,
+        path      : '/topic/tags/:tags',
+        component : React.lazy(() => import('./topicsPage/Tags')),
+    }, 
       {
           path      : '/article/:id',
           component : React.lazy(() => import('./Article')), 

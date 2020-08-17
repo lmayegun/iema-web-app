@@ -13,7 +13,9 @@ const Tags: React.FC<TagsProps> = ({className, tags})=>{
             <p> no Tags</p>
         );
     }
+
     const lastIndex =  tags.length - 1;
+
     return(
         <TagsStyled>
             <span className={`${className} type-text`}>
@@ -21,7 +23,7 @@ const Tags: React.FC<TagsProps> = ({className, tags})=>{
                     tags.map(( tag: string, index: number)=>{
                         return(
                             <>
-                                <Link to='/' key={index}> {tag} </Link>  
+                                <Link to={`/topic/tags/${tag}`} key={index}> {tag} </Link>  
                                 {index !== lastIndex && <>|</>}
                             </>
                         );
