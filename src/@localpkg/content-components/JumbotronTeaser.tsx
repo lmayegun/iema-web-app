@@ -33,7 +33,9 @@ const JumbotronTeaser: React.FC<JumbotronTeaserProps> = ({article})=>{
                     <Col md={5}>
                         <div className={`jumbotron-content text-center`}>
                             <BoxTitleSummary>
-                                <h3> {title} </h3>
+                                <Link to={`/article/${id}`}>
+                                    <h3> {title} </h3>
+                                </Link>
                                 <p dangerouslySetInnerHTML={{__html: description}}/>
                                 <Tags tags={tags}/>
                                 <Date date={publishedOn}/>

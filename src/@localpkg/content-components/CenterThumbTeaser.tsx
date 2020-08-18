@@ -27,13 +27,13 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
             <Col sm={12}>
                 <div className={`thumbnail ${size}`}>
                     <div className={`thumbnail-image promoted`}>
-                        <a href='/'>
+                        <Link to={`/article/${id}`}>
                             <img 
                                 src={urlToImage} 
                                 alt={'center-thumbs'}
                                 className={'img-responsive'}
                             />
-                        </a>
+                        </Link>
                     </div>
                     { overlapContent && (
                         <div className={'thumbnail-content text-center'}>

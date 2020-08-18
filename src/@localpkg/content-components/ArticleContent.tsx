@@ -2,39 +2,46 @@ import React from 'react';
 import styled from 'styled-components';
 import {Tags, Date} from 'src/@localpkg';
 
-const ArticleContent: React.FC = ()=>{
+import { Article } from 'src/app/main/types';
+
+interface ArticleContentProps{
+  article: Article;
+};
+
+const ArticleContent: React.FC<ArticleContentProps> = ({article})=>{
+  if(!article){
+    return <h4> no article to show</h4>
+  }
+  const {title, category, description, body, author, publishedOn, tags, urlToImage } = article
   return(
     <ArticleContentStyled>
       <div className={'taxonomy-wrapper'}>
-        <div className={'content-type'}> News | </div> <Tags/> 
+        <div className={'content-type'}> {category} | </div> <Tags tags={tags}/> 
       </div>
 
       <div className={'page-header'}>
         <h1>
-          Lockdowns to have 'negligible' impact on global temperature, scientists warn
+          {title}
         </h1>
       </div>
 
       <div className={'date'}>
-        <Date/>
+        <Date date={publishedOn}/>
       </div>
 
       <div className={'summary'}>
-        <p>
-        The sudden fall in greenhouse gas emissions and air pollutants recorded during COVID-19 
-        lockdowns will only have a negligible impact on global temperature change, a new study has found.
-        </p>
+        <p dangerouslySetInnerHTML={{__html: description }}/>
       </div>
 
       <div className={'hero-image-wrapper'}>
         <img 
-          src='https://transform.iema.net/sites/default/files/s3/hero/web_empty-road_istock-1215872588.png' 
+          src={urlToImage} 
           alt='hero'
           className={'img-responsive'}
         /> 
       </div>
 
-      <div dangerouslySetInnerHTML={bodyMarkup()}/>
+      <div dangerouslySetInnerHTML={{__html:body}}/>
 
     </ArticleContentStyled>
   );

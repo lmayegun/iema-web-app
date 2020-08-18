@@ -22,10 +22,10 @@ const Tags: React.FC<TagsProps> = ({className, tags})=>{
                 {   
                     tags.map(( tag: string, index: number)=>{
                         return(
-                            <>
-                                <Link to={`/topic/tags/${tag}`} key={index}> {tag} </Link>  
+                            <React.Fragment key={index}>
+                                <Link to={`/topic/tags/${tag}`}> {tag} </Link>  
                                 {index !== lastIndex && <>|</>}
-                            </>
+                            </React.Fragment>
                         );
                     })
                 }
