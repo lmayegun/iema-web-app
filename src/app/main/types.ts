@@ -38,6 +38,11 @@ export interface ArticleFilter{
     id?: string; 
 }
 
+export interface SearchFilter{
+    searchText: string;
+    sortBy?: string;
+}
+
 export const articleActionsId = {
     GET_ARTICLES : '[ARTICLES] GET_ARTICLES',
     GET_HOMEPAGE_ARTICLES : '[HOMEPAGE] GET_ARTICLES',
@@ -46,6 +51,10 @@ export const articleActionsId = {
     GET_TAGS_TOP_REGION : '[TAGS] TOP_REGION',
     GET_TAGS_SECOND_REGION : '[TAGS] SECOND_REGION', 
     GET_ARTICLE : '[ARTICLE] GET_ARTICLE'
+}
+
+export const searchActionsId = {
+    GET_SEARCH_ARTICLES : '[SEARCH] GET ARTICLES',
 }
 
 export const homepageReducersId = {
@@ -79,5 +88,10 @@ interface GetHomepageArticles {
     payload: ArticleFilter
 }
 
+export interface SearchFilterArticles {
+    type: string;
+    payload: SearchFilter
+}
 
-export type ArticleActionTypes = GetArticles | GetHomepageArticles ;
+
+export type ArticleActionTypes = GetArticles | GetHomepageArticles;
