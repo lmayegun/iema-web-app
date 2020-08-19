@@ -1,19 +1,51 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Collapse} from 'react-bootstrap';
+import {useDispatch} from 'react-redux';
+
+import {AppContextConsumer} from 'src/app/AppContext';
+import { getSearchedArticles } from 'src/app/main/pages/store/actions';
 
 const SearchInput: React.FC = ()=>{
   const [open, setOpen] = useState(false);
+  const [userSearch, setUserSearch] = useState('');
+
+  const dispatch = useDispatch();
 
   return(
-    <SearchInputStyled>
-      <div onClick={() => setOpen(!open)} className={'search'}></div>
-      <Collapse in={open}>
-        <div className="collapse-text">
-        <input className="form-control form-text" type="text" id="edit-search-api-views-fulltext" name="search_api_views_fulltext" value="" style={{"display": "inline-block"}}/>
-        </div>
-      </Collapse>
-    </SearchInputStyled>
+    <AppContextConsumer>
+      {
+        (context)=>{
+          console.log(context?.searchText, 'context')
+          return(
+            <SearchInputStyled>
+              <div onClick={() => setOpen(!open)} className={'search'}></div>
+              <Collapse in={open}>
+                <div className="collapse-text">
+                  <input 
+                    className="form-control form-text" 
+                    type="text" 
+                    id="edit-search-api-views-fulltext" 
+                    name="search_api_views_fulltext" 
+                    value={context?.searchText} 
+                    onChange={(ev)=>{
+                      context?.setSearchText(ev.target.value);
+                      setUserSearch(ev.target.value);
+                    }}
+                    onKeyPress={(ev)=>{
+                      if( ev.key === 'Enter' ){
+                        dispatch(getSearchedArticles({searchText: userSearch}))
+                      }
+                    }}
+                    style={{"display": "inline-block"}}
+                  />
+                </div>
+              </Collapse>
+            </SearchInputStyled>
+          )
+        }
+      }
+    </AppContextConsumer>
   );
 };
 

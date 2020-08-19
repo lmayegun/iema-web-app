@@ -10,7 +10,7 @@ import TopicLinks from './TopicModalLinks.json';
 const HeaderNavigation: React.FC = ()=>{
     return <AppContextConsumer>
         {(context)=>{
-            console.log(context)
+            // console.log(context)
             return(
                 <>
                     <HeaderNavigationStyled>

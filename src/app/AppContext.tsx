@@ -3,6 +3,8 @@ import * as React from 'react';
 export interface AppContextInterface {
     modalMenu: boolean;
     toggleModalMenu: ()=>void;
+    searchText: string;
+    setSearchText: ( input: string )=>void; 
 }
 
 const AppContext = React.createContext<AppContextInterface | null >(null);
@@ -17,6 +19,10 @@ export class AppProvider extends React.Component{
         modalMenu       : false,
         toggleModalMenu : ()=>{
           this.setState({modalMenu: !this.state.modalMenu})
+        },
+        searchText      : '',
+        setSearchText   : ( input: string )=>{
+            this.setState({ searchText: input })
         }
     }
 
