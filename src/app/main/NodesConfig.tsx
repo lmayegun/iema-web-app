@@ -20,10 +20,14 @@ export const NodesConfig: any = {
         exact     : true,
         path      : '/topic/tags/:tags',
         component : React.lazy(() => import('./topicsPage/Tags')),
-    }, 
+      }, 
       {
           path      : '/article/:id',
           component : React.lazy(() => import('./article/Article')), 
+      },
+      {
+          path      : '/search',
+          component : React.lazy(()=>import('./pages/SearchResults')),
       }
   ]
 };
