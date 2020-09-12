@@ -1,6 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
+import {Container, Col, Row} from 'react-bootstrap';
+
+import {IemaButton} from 'src/@localpkg';
 
 interface MagazineSliderProps {
     magazines?: string;
@@ -48,6 +51,14 @@ class MagazineSlider extends React.Component<MagazineSliderProps> {
         };
         return (
         <StyledMagazine>
+            <div className={"action-btn-wrapper"}>
+            <Container>
+                <Row>
+                    <Col md={{ span: 3, offset: 3 }}><IemaButton title={"SUBSCRIBE"} variant={"pink"}/></Col>
+                    <Col md={3}><IemaButton title={"VIEW ALL ISSUES"} variant={"pink"}/></Col>
+                </Row>
+            </Container>
+            </div>
             <Slider {...settings}>
                 <div className={"magazine-item"}>
                     <div className={"magazine-title"}>
@@ -143,6 +154,9 @@ const StyledMagazine = styled.div`
     background: #ebebeb;
     padding: 44px 20px 50px;
     position: relative;
+    .action-btn-wrapper{
+        margin-bottom: 40px;
+    }
     .slick-list{
         max-width: 868px;
         margin: auto;

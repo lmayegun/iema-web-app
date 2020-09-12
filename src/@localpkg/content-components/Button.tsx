@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button'
 
 interface IemaBtnProps {
   title: string;
-  color?: string; 
+  color?: string;
+  variant?: string; 
 }
 
 interface StyledWrapper {
@@ -12,10 +13,10 @@ interface StyledWrapper {
   margin?: string;
 }
 
-const IemaButton: React.FC<IemaBtnProps> = ({title})=>{
+const IemaButton: React.FC<IemaBtnProps> = ({title, variant})=>{
   return(
     <IemaButtonStyled>
-      <Button variant="primary" size="lg">
+      <Button variant={variant} size="lg">
         {title}
       </Button>
     </IemaButtonStyled>
