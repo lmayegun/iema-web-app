@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Collapse} from 'react-bootstrap';
 import {useDispatch} from 'react-redux';
+import {withRouter, RouteComponentProps} from 'react-router-dom';
 
 import {AppContextConsumer} from 'src/app/AppContext';
 import { getSearchedArticles } from 'src/app/main/pages/store/actions';
 
-const SearchInput: React.FC = ()=>{
+const SearchInput: React.FC<RouteComponentProps> = ( props )=>{
+
   const [open, setOpen] = useState(false);
   const [userSearch, setUserSearch] = useState('');
 
@@ -35,9 +37,9 @@ const SearchInput: React.FC = ()=>{
                     onKeyPress={(ev)=>{
                       if( ev.key === 'Enter' ){
                         dispatch(getSearchedArticles({searchText: userSearch}))
+                        props!.history!.push('/search')
                       }
                     }}
-                    style={{"display": "inline-block"}}
                   />
                 </div>
               </Collapse>
@@ -64,10 +66,10 @@ const SearchInputStyled = styled.div`
   }
   .collapse-text{
     position: absolute;
-    top: 16px;
-    right: 0;
+    top: -8px;
+    right: 45px;
     z-index: 1;
   }
 `;
 
-export default SearchInput;
+export default withRouter(SearchInput);

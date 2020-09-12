@@ -2,7 +2,7 @@ import React, {useEffect, useState}  from 'react';
 import {Col, Row, Jumbotron} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
-import { CenterThumbTeaser, PaneTitle, TwitterTimeline} from 'src/@localpkg';
+import { CenterThumbTeaser, PaneTitle, TwitterTimeline, IemaButton} from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import {Article} from 'src/app/main/types';
@@ -57,13 +57,15 @@ const SectionThree: React.FC = ()=>{
                     <Jumbotron style={{padding:'20px'}}>
                         <Row>
                             <Col sm={4}>
-                                Magic Stick 
+                                <PaneTitle title="Sign Up" fontSize={"40px"} color={"#407ec9"}/>
+                                <IemaButton title={"Fortnightly editorial e-newsletter"}/>
+                                <IemaButton title={"Weekly job alerts"}/>
                             </Col>
                             <Col sm={4}>
                                 <TwitterTimeline />
                             </Col>
                             <Col sm={4}>
-                                Magic Stick 
+                                <PaneTitle title="Jobs" fontSize={"40px"} color={"orange"}/>
                             </Col>
                         </Row>
                     </Jumbotron>

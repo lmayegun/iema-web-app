@@ -17,9 +17,9 @@ const CenterThumbTeaser: React.FC<CenterThumbTeaserProps> = ({className, overlap
 
     if( !article ){
         return <h1> no article is set </h1>
-    }
+    };
 
-    const {id, title, urlToImage, description, tags, publishedOn} = article;
+    const {id, title, urlToImage, tags, publishedOn} = article;
     const size = overlapContent ? 'large' : 'normal';
 
     return(

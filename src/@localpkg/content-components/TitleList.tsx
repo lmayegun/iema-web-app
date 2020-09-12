@@ -12,13 +12,12 @@ interface TitleListProps {
 
 interface Wrapper{
     width: string
-  };
+};
 
 const TitleList: React.FC<TitleListProps> = ({width, articles})=>{
     if(!articles){
         return <h1> articles is undefined </h1>
     }
-    console.log('yey most popular', articles)
     return(
         <div>
             <TitleListStyled width={`${width}%`}>

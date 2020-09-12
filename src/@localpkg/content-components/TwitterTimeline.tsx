@@ -38,7 +38,7 @@ class App extends React.Component {
 const TwitterTimeline: React.FC<TwitterTimelineProps> = ({className})=>{
     return(
         <div>
-            <PaneTitle title={"Twitter"} />
+            <PaneTitle title={"Twitter"} fontSize={"40px"}/>
             <div className={className}>
                 <App/>
                 <a className={"twitter-timeline"} 
