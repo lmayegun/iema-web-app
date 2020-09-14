@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {JumbotronTeaser, SideThumbTeaser, PaneTitle} from 'src/@localpkg';
+import {JumbotronTeaser, SideThumbTeaser, PaneTitle, AdsSpace} from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 import {Article} from 'src/app/main/types';
@@ -59,8 +59,8 @@ const SectionOne: React.FC = ()=>{
                         })
                     }
                 </Col>
-                <Col sm={6} className={'padding-0 text-center'}>
-                    Ad Board 
+                <Col sm={6} className={'text-center'}>
+                    <AdsSpace/>
                 </Col>
             </Row>
         </div>

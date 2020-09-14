@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {PaneTitle, TitleList} from 'src/@localpkg';
+import {PaneTitle, TitleList, AdsSpace} from 'src/@localpkg';
 import { Topic, homepageReducersId } from 'src/app/main/types';
 import { getHomepageArticles } from 'src/app/main/frontPage/store/actions';
 
@@ -31,11 +31,11 @@ const SectionFive: React.FC = ()=>{
         <div>
             <PaneTitle title={'Most Popular'}/>
             <Row>
-                <Col sm={9}>
+                <Col sm={8}>
                     <TitleList width={40} articles={mostPopular}/> 
                 </Col>
-                <Col sm={3}>
- 
+                <Col sm={4}>
+                    <AdsSpace/> 
                 </Col>
             </Row>        
         </div>

@@ -10,3 +10,4 @@ export {default as ArticleContent} from './content-components/ArticleContent';
 export {default as Tags} from './content-components/Tags';
 export {default as Date} from './content-components/Date';
 export {default as IemaButton} from './content-components/Button';
+export {default as AdsSpace} from './content-components/AdsSpace';
