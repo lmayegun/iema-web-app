@@ -10,7 +10,7 @@ $theme-colors: (
 #root, body, html {
     width: 100%;
     height: 100%;
-    overflow: overlay;
+    overflow: hidden;
     position: relative;
 }
 
@@ -23,6 +23,17 @@ $theme-colors: (
 .page-wrapper{
     background: white;
     max-width: 1260px;
+}
+
+::-webkit-scrollbar {
+    width: 0px; 
+    right:-100px;
+}
+
+.scroll-div{
+    overflow: auto;
+    height: 100%;
+    padding-top: 195px;
 }
 
 .jumbotron{

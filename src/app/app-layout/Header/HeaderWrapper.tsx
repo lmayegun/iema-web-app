@@ -10,7 +10,7 @@ interface HeaderWrapperProps {
 
 const HeaderWrapper: React.FC<HeaderWrapperProps> = props => {
     return(
-        <Navbar fixed="top" className={`navbar-wrapper navbar-fixed-top pl-0 pr-0 container ${props.className}`}>
+        <Navbar fixed="top" className={`navbar-wrapper navbar-fixed-top container ${props.className}`}>
             <HeaderBrands />
             <div className={'hidden-xs hidden-sm hidden-md full-width'}>
                 <HeaderNavigation />
@@ -20,12 +20,13 @@ const HeaderWrapper: React.FC<HeaderWrapperProps> = props => {
 }
 
 const StyledHeaderWrapper = styled(HeaderWrapper)<HeaderWrapperProps>`
-    padding-top:20px;
+    padding-top:30px;
+    padding-bottom: 30px;
     background: white;
     z-index: 999;
     display: flex;
     flex-direction: column;
-    max-width: 1230px;
+    max-width: 1260px;
 `;
 
 export default StyledHeaderWrapper;
