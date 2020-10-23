@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {useDispatch, useSelector} from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 
-import { PaneTitle, CenterThumbTeaser, SideThumbTeaser } from 'src/@localpkg';
+import { PaneTitle, CenterThumbTeaser, SideThumbTeaser, AdsSpace } from 'src/@localpkg';
 import { getTagsTopRegion, getTagsSecondRegion } from 'src/app/main/topicsPage/store/actions';
 import { Article } from 'src/app/main/types';
 import withReducer from 'src/app/store/withReducer';
@@ -79,6 +79,11 @@ const Topics: React.FC<RouteComponentProps> = ( props )=>{
                 );
               })
             }
+          </div>
+        </Col>
+        <Col md={4}>
+          <div className={"rar"}>
+            <AdsSpace/> 
           </div>
         </Col>
       </Row>
