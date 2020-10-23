@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "outDir": "dist",
-    "sourceMap": true,
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,8 +17,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
-    "baseUrl": "."
+    "jsx": "react"
   },
   "include": [
     "src"
